@@ -16,7 +16,10 @@ class MTGreetingVCImageView: UIImageView {
     
     init() {
         super.init(frame: .zero)
-        self.image = UIImage(named: "greetingVCImage")
+    }
+    
+    func setImage(named: String) {
+        self.image = UIImage(named: named)
     }
     
     required init?(coder: NSCoder) {
