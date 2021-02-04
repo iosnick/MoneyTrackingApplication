@@ -8,52 +8,53 @@
 import UIKit
 
 class MTGreetingViewController: UIViewController {
-    // MARK: - Variables
-    lazy var welcomeLabel: MTGreetingVCLabel = {
-        let label = MTGreetingVCLabel()
+    // MARK: - GUI Variables
+    private lazy var welcomeLabel: MTCustomLabel = {
+        let label = MTCustomLabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.setLabelProperties(textColor: .white, text: "Welcome to", font: .systemFont(ofSize: 24))
         return label
     }()
-    lazy var secondWelcomeLabel: MTGreetingVCLabel = {
-        let label = MTGreetingVCLabel()
+    private lazy var secondWelcomeLabel: MTCustomLabel = {
+        let label = MTCustomLabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.setLabelProperties(textColor: UIColor(red: 68/255, green: 71/255, blue: 234/255, alpha: 1),
                                  text: "Money Tracking",
                                  font: .systemFont(ofSize: 24))
         return label
     }()
-    lazy var thirdWelcomeLabel: MTGreetingVCLabel = {
-        let label = MTGreetingVCLabel()
+    private lazy var thirdWelcomeLabel: MTCustomLabel = {
+        let label = MTCustomLabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.setLabelProperties(textColor: .white, text: "Save your money", font: .systemFont(ofSize: 27))
         return label
     }()
-    lazy var fourthWelcomeLabel: MTGreetingVCLabel = {
-        let label = MTGreetingVCLabel()
+    private lazy var fourthWelcomeLabel: MTCustomLabel = {
+        let label = MTCustomLabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.setLabelProperties(textColor: UIColor(red: 169/255, green: 169/255, blue: 185/255, alpha: 1),
                                  text: "Manage your finance, control expenses, plan your budget and save your money for grand future purposes",
                                  font: .systemFont(ofSize: 15),
-                                 numberOfLines: 3)
+                                 lines: 3)
         return label
     }()
-    lazy var signInLabel: MTGreetingVCLabel = {
-        let label = MTGreetingVCLabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.setLabelProperties(textColor: .white, text: "Already have an account?", font: .systemFont(ofSize: 15))
-        return label
-    }()
-    lazy var signUpButton: MTSignInUpButton = {
+    private lazy var signUpButton: MTSignInUpButton = {
         let button = MTSignInUpButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setButtonProperties(title: "Sign Up",
                                    cornerRadius: 25,
                                    titleColor: .white,
                                    backgroundColor: UIColor(red: 68.0/255.0, green: 71.0/255.0, blue: 234.0/255.0, alpha: 1.0))
+        button.addTarget(self, action: #selector(self.openRegisterVC), for: .touchUpInside)
         return button
     }()
-    lazy var signInButton: MTSignInUpButton = {
+    private lazy var signInLabel: MTCustomLabel = {
+        let label = MTCustomLabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.setLabelProperties(textColor: .white, text: "Already have an account?", font: .systemFont(ofSize: 15))
+        return label
+    }()
+    private lazy var signInButton: MTSignInUpButton = {
         let button = MTSignInUpButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.titleLabel?.adjustsFontSizeToFitWidth = true
@@ -63,15 +64,15 @@ class MTGreetingViewController: UIViewController {
         button.addTarget(self, action: #selector(self.openAuthVC), for: .touchUpInside)
         return button
     }()
-    lazy var greetingImageView: MTGreetingVCImageView = {
-        let imageView = MTGreetingVCImageView()
-        imageView.setImage(named: "greetingVCImage")
+    private lazy var greetingImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "greetingVCImage")
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
-    lazy var secondGreetingImageView: MTGreetingVCImageView = {
-        let imageView = MTGreetingVCImageView()
-        imageView.setImage(named: "secondGreetingVCImage")
+    private lazy var secondGreetingImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "secondGreetingVCImage")
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
@@ -89,9 +90,15 @@ class MTGreetingViewController: UIViewController {
         self.addConstraints()
     }
     
-    // MARK: - Push AuthorizationViewController
+    // MARK: - Open View Controllers
     @objc private func openAuthVC() {
         let vc = MTAuthorizationViewController()
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true, completion: nil)
+    }
+    
+    @objc private func openRegisterVC() {
+        let vc = MTRegisterViewController()
         vc.modalPresentationStyle = .fullScreen
         present(vc, animated: true, completion: nil)
     }

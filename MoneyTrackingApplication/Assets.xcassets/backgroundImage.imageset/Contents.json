@@ -5,11 +5,11 @@
       "scale" : "1x"
     },
     {
-      "filename" : "illustration.svg",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "logobg.svg",
       "idiom" : "universal",
       "scale" : "3x"
     }

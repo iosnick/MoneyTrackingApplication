@@ -23,8 +23,8 @@ class MTSignInUpButton: UIButton {
                              titleColor: UIColor,
                              backgroundColor: UIColor = .clear,
                              font: UIFont = UIFont.systemFont(ofSize: 19),
-                             _ fontSize: Bool = true) {
-        self.titleLabel?.adjustsFontSizeToFitWidth = fontSize
+                             adjustsFontSizeToFitWidth: Bool = true) {
+        self.titleLabel?.adjustsFontSizeToFitWidth = adjustsFontSizeToFitWidth
         self.titleLabel?.font = font
         self.backgroundColor = backgroundColor
         self.setTitleColor(titleColor, for: .normal)
@@ -32,3 +32,4 @@ class MTSignInUpButton: UIButton {
         self.layer.cornerRadius = cornerRadius
     }
 }
+

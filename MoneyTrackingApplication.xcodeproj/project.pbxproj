@@ -9,9 +9,10 @@
 /* Begin PBXBuildFile section */
 		7D4AD29D25CAC32F0032DF59 /* MTAuthorizationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4AD29C25CAC32F0032DF59 /* MTAuthorizationViewController.swift */; };
 		7D4AD2AA25CAD8BA0032DF59 /* MTSignInUpButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4AD2A925CAD8BA0032DF59 /* MTSignInUpButton.swift */; };
-		7D4AD2B025CAE75D0032DF59 /* MTGreetingVCImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4AD2AF25CAE75D0032DF59 /* MTGreetingVCImageView.swift */; };
-		7D4AD2B425CB24510032DF59 /* MTGreetingVCLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4AD2B325CB24510032DF59 /* MTGreetingVCLabel.swift */; };
+		7D4AD2B425CB24510032DF59 /* MTCustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4AD2B325CB24510032DF59 /* MTCustomLabel.swift */; };
 		7D4AD2BA25CBF8BA0032DF59 /* UIView+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4AD2B925CBF8BA0032DF59 /* UIView+Ex.swift */; };
+		7D4AD2C025CC68730032DF59 /* MTRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4AD2BF25CC68730032DF59 /* MTRegisterViewController.swift */; };
+		7D4AD2C425CC6D8F0032DF59 /* MTCustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4AD2C325CC6D8F0032DF59 /* MTCustomTextField.swift */; };
 		7DC1AF2B25C9D4CF00E099A0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DC1AF2A25C9D4CF00E099A0 /* AppDelegate.swift */; };
 		7DC1AF2D25C9D4CF00E099A0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DC1AF2C25C9D4CF00E099A0 /* SceneDelegate.swift */; };
 		7DC1AF2F25C9D4CF00E099A0 /* MTGreetingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DC1AF2E25C9D4CF00E099A0 /* MTGreetingViewController.swift */; };
@@ -23,9 +24,10 @@
 /* Begin PBXFileReference section */
 		7D4AD29C25CAC32F0032DF59 /* MTAuthorizationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTAuthorizationViewController.swift; sourceTree = "<group>"; };
 		7D4AD2A925CAD8BA0032DF59 /* MTSignInUpButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTSignInUpButton.swift; sourceTree = "<group>"; };
-		7D4AD2AF25CAE75D0032DF59 /* MTGreetingVCImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTGreetingVCImageView.swift; sourceTree = "<group>"; };
-		7D4AD2B325CB24510032DF59 /* MTGreetingVCLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTGreetingVCLabel.swift; sourceTree = "<group>"; };
+		7D4AD2B325CB24510032DF59 /* MTCustomLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTCustomLabel.swift; sourceTree = "<group>"; };
 		7D4AD2B925CBF8BA0032DF59 /* UIView+Ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ex.swift"; sourceTree = "<group>"; };
+		7D4AD2BF25CC68730032DF59 /* MTRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTRegisterViewController.swift; sourceTree = "<group>"; };
+		7D4AD2C325CC6D8F0032DF59 /* MTCustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTCustomTextField.swift; sourceTree = "<group>"; };
 		7DC1AF2725C9D4CF00E099A0 /* MoneyTrackingApplication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoneyTrackingApplication.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7DC1AF2A25C9D4CF00E099A0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7DC1AF2C25C9D4CF00E099A0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -50,8 +52,7 @@
 		7D4AD2A725CAD8830032DF59 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				7D4AD2AF25CAE75D0032DF59 /* MTGreetingVCImageView.swift */,
-				7D4AD2B325CB24510032DF59 /* MTGreetingVCLabel.swift */,
+				7D4AD2B325CB24510032DF59 /* MTCustomLabel.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -60,6 +61,7 @@
 			isa = PBXGroup;
 			children = (
 				7D4AD2A925CAD8BA0032DF59 /* MTSignInUpButton.swift */,
+				7D4AD2C325CC6D8F0032DF59 /* MTCustomTextField.swift */,
 			);
 			path = Controls;
 			sourceTree = "<group>";
@@ -109,6 +111,7 @@
 			children = (
 				7DC1AF2E25C9D4CF00E099A0 /* MTGreetingViewController.swift */,
 				7D4AD29C25CAC32F0032DF59 /* MTAuthorizationViewController.swift */,
+				7D4AD2BF25CC68730032DF59 /* MTRegisterViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -201,12 +204,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				7DC1AF2F25C9D4CF00E099A0 /* MTGreetingViewController.swift in Sources */,
-				7D4AD2B025CAE75D0032DF59 /* MTGreetingVCImageView.swift in Sources */,
 				7DC1AF2B25C9D4CF00E099A0 /* AppDelegate.swift in Sources */,
 				7D4AD2BA25CBF8BA0032DF59 /* UIView+Ex.swift in Sources */,
+				7D4AD2C425CC6D8F0032DF59 /* MTCustomTextField.swift in Sources */,
 				7DC1AF2D25C9D4CF00E099A0 /* SceneDelegate.swift in Sources */,
-				7D4AD2B425CB24510032DF59 /* MTGreetingVCLabel.swift in Sources */,
+				7D4AD2B425CB24510032DF59 /* MTCustomLabel.swift in Sources */,
 				7D4AD29D25CAC32F0032DF59 /* MTAuthorizationViewController.swift in Sources */,
+				7D4AD2C025CC68730032DF59 /* MTRegisterViewController.swift in Sources */,
 				7D4AD2AA25CAD8BA0032DF59 /* MTSignInUpButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -364,7 +368,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = test.MoneyTrackingApplication;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -383,7 +387,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = test.MoneyTrackingApplication;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
