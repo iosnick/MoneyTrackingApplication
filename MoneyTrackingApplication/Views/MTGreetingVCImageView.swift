@@ -18,11 +18,12 @@ class MTGreetingVCImageView: UIImageView {
         super.init(frame: .zero)
     }
     
-    func setImage(named: String) {
-        self.image = UIImage(named: named)
-    }
-    
     required init?(coder: NSCoder) {
         super.init(coder: coder)
+    }
+    
+    // MARK: - Methods
+    func setImage(named: String) {
+        self.image = UIImage(named: named)
     }
 }

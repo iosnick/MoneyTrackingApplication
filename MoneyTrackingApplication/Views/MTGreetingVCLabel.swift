@@ -13,7 +13,12 @@ class MTGreetingVCLabel: UILabel {
     override init(frame: CGRect) {
         super.init(frame: frame)
     }
-
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+    }
+    
+    // MARK: - Methods
     func setLabelProperties(textColor: UIColor,
                             text: String,
                             textAlignment: NSTextAlignment = .center,
@@ -24,9 +29,5 @@ class MTGreetingVCLabel: UILabel {
         self.textAlignment = textAlignment
         self.font = font
         self.numberOfLines = numberOfLines
-    }
-    
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
     }
 }

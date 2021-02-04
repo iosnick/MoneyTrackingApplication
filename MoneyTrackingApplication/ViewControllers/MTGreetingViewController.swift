@@ -60,6 +60,7 @@ class MTGreetingViewController: UIViewController {
         button.setButtonProperties(title: "Sign In",
                                    titleColor: UIColor(red: 68.0/255.0, green: 71.0/255.0, blue: 234.0/255.0, alpha: 1.0),
                                    font: UIFont.systemFont(ofSize: 15))
+        button.addTarget(self, action: #selector(self.openAuthVC), for: .touchUpInside)
         return button
     }()
     lazy var greetingImageView: MTGreetingVCImageView = {
@@ -82,22 +83,20 @@ class MTGreetingViewController: UIViewController {
         
         self.view.backgroundColor = UIColor(red: 28/255, green: 26/255, blue: 38/255, alpha: 1)
         
-        self.addSubviews()
+        self.view.addSubviews([self.signInButton, self.signInLabel, self.fourthWelcomeLabel, self.thirdWelcomeLabel,
+                               self.secondGreetingImageView, self.secondWelcomeLabel, self.welcomeLabel,
+                               self.signUpButton, self.greetingImageView])
         self.addConstraints()
     }
     
-    private func addSubviews() {
-        self.view.addSubview(self.signInButton)
-        self.view.addSubview(self.signInLabel)
-        self.view.addSubview(self.fourthWelcomeLabel)
-        self.view.addSubview(self.thirdWelcomeLabel)
-        self.view.addSubview(self.secondGreetingImageView)
-        self.view.addSubview(self.secondWelcomeLabel)
-        self.view.addSubview(self.welcomeLabel)
-        self.view.addSubview(self.signUpButton)
-        self.view.addSubview(self.greetingImageView)
+    // MARK: - Push AuthorizationViewController
+    @objc private func openAuthVC() {
+        let vc = MTAuthorizationViewController()
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true, completion: nil)
     }
     
+    // MARK: - Add constraints
     private func addConstraints() {
         var constraints = [NSLayoutConstraint]()
         

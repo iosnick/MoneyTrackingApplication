@@ -11,6 +11,7 @@
 		7D4AD2AA25CAD8BA0032DF59 /* MTSignInUpButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4AD2A925CAD8BA0032DF59 /* MTSignInUpButton.swift */; };
 		7D4AD2B025CAE75D0032DF59 /* MTGreetingVCImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4AD2AF25CAE75D0032DF59 /* MTGreetingVCImageView.swift */; };
 		7D4AD2B425CB24510032DF59 /* MTGreetingVCLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4AD2B325CB24510032DF59 /* MTGreetingVCLabel.swift */; };
+		7D4AD2BA25CBF8BA0032DF59 /* UIView+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4AD2B925CBF8BA0032DF59 /* UIView+Ex.swift */; };
 		7DC1AF2B25C9D4CF00E099A0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DC1AF2A25C9D4CF00E099A0 /* AppDelegate.swift */; };
 		7DC1AF2D25C9D4CF00E099A0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DC1AF2C25C9D4CF00E099A0 /* SceneDelegate.swift */; };
 		7DC1AF2F25C9D4CF00E099A0 /* MTGreetingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DC1AF2E25C9D4CF00E099A0 /* MTGreetingViewController.swift */; };
@@ -24,6 +25,7 @@
 		7D4AD2A925CAD8BA0032DF59 /* MTSignInUpButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTSignInUpButton.swift; sourceTree = "<group>"; };
 		7D4AD2AF25CAE75D0032DF59 /* MTGreetingVCImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTGreetingVCImageView.swift; sourceTree = "<group>"; };
 		7D4AD2B325CB24510032DF59 /* MTGreetingVCLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTGreetingVCLabel.swift; sourceTree = "<group>"; };
+		7D4AD2B925CBF8BA0032DF59 /* UIView+Ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ex.swift"; sourceTree = "<group>"; };
 		7DC1AF2725C9D4CF00E099A0 /* MoneyTrackingApplication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoneyTrackingApplication.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7DC1AF2A25C9D4CF00E099A0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7DC1AF2C25C9D4CF00E099A0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -62,6 +64,14 @@
 			path = Controls;
 			sourceTree = "<group>";
 		};
+		7D4AD2B825CBF89F0032DF59 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				7D4AD2B925CBF8BA0032DF59 /* UIView+Ex.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		7DC1AF1E25C9D4CE00E099A0 = {
 			isa = PBXGroup;
 			children = (
@@ -86,6 +96,7 @@
 				7DC1AF3F25C9D4F800E099A0 /* ViewControllers */,
 				7D4AD2A725CAD8830032DF59 /* Views */,
 				7D4AD2A825CAD88B0032DF59 /* Controls */,
+				7D4AD2B825CBF89F0032DF59 /* Extensions */,
 				7DC1AF4125C9D50F00E099A0 /* Storyboards */,
 				7DC1AF4225C9D52000E099A0 /* Plists */,
 				7DC1AF3325C9D4CF00E099A0 /* Assets.xcassets */,
@@ -192,6 +203,7 @@
 				7DC1AF2F25C9D4CF00E099A0 /* MTGreetingViewController.swift in Sources */,
 				7D4AD2B025CAE75D0032DF59 /* MTGreetingVCImageView.swift in Sources */,
 				7DC1AF2B25C9D4CF00E099A0 /* AppDelegate.swift in Sources */,
+				7D4AD2BA25CBF8BA0032DF59 /* UIView+Ex.swift in Sources */,
 				7DC1AF2D25C9D4CF00E099A0 /* SceneDelegate.swift in Sources */,
 				7D4AD2B425CB24510032DF59 /* MTGreetingVCLabel.swift in Sources */,
 				7D4AD29D25CAC32F0032DF59 /* MTAuthorizationViewController.swift in Sources */,

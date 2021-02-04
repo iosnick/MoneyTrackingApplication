@@ -13,25 +13,22 @@ class MTSignInUpButton: UIButton {
         super.init(frame: frame)
     }
     
-    init() {
-        super.init(frame: .zero)
-        self.titleLabel?.font = UIFont.systemFont(ofSize: 19)
-        self.titleLabel?.adjustsFontSizeToFitWidth = true
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
     }
     
+    // MARK: - Methods
     func setButtonProperties(title: String,
                              cornerRadius: CGFloat = 0,
                              titleColor: UIColor,
                              backgroundColor: UIColor = .clear,
-                             font: UIFont = UIFont.systemFont(ofSize: 19)) {
+                             font: UIFont = UIFont.systemFont(ofSize: 19),
+                             _ fontSize: Bool = true) {
+        self.titleLabel?.adjustsFontSizeToFitWidth = fontSize
         self.titleLabel?.font = font
         self.backgroundColor = backgroundColor
         self.setTitleColor(titleColor, for: .normal)
         self.setTitle(title, for: .normal)
         self.layer.cornerRadius = cornerRadius
-    }
-    
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
     }
 }

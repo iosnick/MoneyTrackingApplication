@@ -6,13 +6,22 @@
 //
 
 import UIKit
-//
-//class MTAuthorizationViewController: UIViewController {
-//
-//
-//
-//    // MARK: - Life cicle
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//    }
-//}
+
+class MTAuthorizationViewController: UIViewController {
+
+
+
+    // MARK: - Life cicle
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        self.view.backgroundColor = UIColor(red: 28/255, green: 26/255, blue: 38/255, alpha: 1)
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+    
+    // MARK: - Methods
+}
+
