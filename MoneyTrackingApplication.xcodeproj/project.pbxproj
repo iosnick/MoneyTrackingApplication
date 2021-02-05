@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7D15594F25CDC3E800EA2ECC /* MTMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D15594E25CDC3E800EA2ECC /* MTMainViewController.swift */; };
 		7D4AD29D25CAC32F0032DF59 /* MTAuthorizationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4AD29C25CAC32F0032DF59 /* MTAuthorizationViewController.swift */; };
 		7D4AD2AA25CAD8BA0032DF59 /* MTSignInUpButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4AD2A925CAD8BA0032DF59 /* MTSignInUpButton.swift */; };
 		7D4AD2B425CB24510032DF59 /* MTCustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4AD2B325CB24510032DF59 /* MTCustomLabel.swift */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7D15594E25CDC3E800EA2ECC /* MTMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTMainViewController.swift; sourceTree = "<group>"; };
 		7D4AD29C25CAC32F0032DF59 /* MTAuthorizationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTAuthorizationViewController.swift; sourceTree = "<group>"; };
 		7D4AD2A925CAD8BA0032DF59 /* MTSignInUpButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTSignInUpButton.swift; sourceTree = "<group>"; };
 		7D4AD2B325CB24510032DF59 /* MTCustomLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTCustomLabel.swift; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 				7DC1AF2E25C9D4CF00E099A0 /* MTGreetingViewController.swift */,
 				7D4AD29C25CAC32F0032DF59 /* MTAuthorizationViewController.swift */,
 				7D4AD2BF25CC68730032DF59 /* MTRegisterViewController.swift */,
+				7D15594E25CDC3E800EA2ECC /* MTMainViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -209,6 +212,7 @@
 				7D4AD2C425CC6D8F0032DF59 /* MTCustomTextField.swift in Sources */,
 				7DC1AF2D25C9D4CF00E099A0 /* SceneDelegate.swift in Sources */,
 				7D4AD2B425CB24510032DF59 /* MTCustomLabel.swift in Sources */,
+				7D15594F25CDC3E800EA2ECC /* MTMainViewController.swift in Sources */,
 				7D4AD29D25CAC32F0032DF59 /* MTAuthorizationViewController.swift in Sources */,
 				7D4AD2C025CC68730032DF59 /* MTRegisterViewController.swift in Sources */,
 				7D4AD2AA25CAD8BA0032DF59 /* MTSignInUpButton.swift in Sources */,
