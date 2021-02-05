@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7D15594F25CDC3E800EA2ECC /* MTMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D15594E25CDC3E800EA2ECC /* MTMainViewController.swift */; };
+		7D15595225CDD0EF00EA2ECC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7D15595125CDD0EF00EA2ECC /* GoogleService-Info.plist */; };
 		7D4AD29D25CAC32F0032DF59 /* MTAuthorizationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4AD29C25CAC32F0032DF59 /* MTAuthorizationViewController.swift */; };
 		7D4AD2AA25CAD8BA0032DF59 /* MTSignInUpButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4AD2A925CAD8BA0032DF59 /* MTSignInUpButton.swift */; };
 		7D4AD2B425CB24510032DF59 /* MTCustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4AD2B325CB24510032DF59 /* MTCustomLabel.swift */; };
@@ -20,10 +21,15 @@
 		7DC1AF3225C9D4CF00E099A0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DC1AF3025C9D4CF00E099A0 /* Main.storyboard */; };
 		7DC1AF3425C9D4CF00E099A0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7DC1AF3325C9D4CF00E099A0 /* Assets.xcassets */; };
 		7DC1AF3725C9D4CF00E099A0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DC1AF3525C9D4CF00E099A0 /* LaunchScreen.storyboard */; };
+		85D30C2A684F919FD66E55AA /* Pods_MoneyTrackingApplication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 056563BD68589CA76F2BA9AB /* Pods_MoneyTrackingApplication.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		056563BD68589CA76F2BA9AB /* Pods_MoneyTrackingApplication.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MoneyTrackingApplication.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2D6A0F911D28EFB2E47B8FED /* Pods-MoneyTrackingApplication.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoneyTrackingApplication.release.xcconfig"; path = "Target Support Files/Pods-MoneyTrackingApplication/Pods-MoneyTrackingApplication.release.xcconfig"; sourceTree = "<group>"; };
+		3CC2750692D66A5668EB34A1 /* Pods-MoneyTrackingApplication.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoneyTrackingApplication.debug.xcconfig"; path = "Target Support Files/Pods-MoneyTrackingApplication/Pods-MoneyTrackingApplication.debug.xcconfig"; sourceTree = "<group>"; };
 		7D15594E25CDC3E800EA2ECC /* MTMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTMainViewController.swift; sourceTree = "<group>"; };
+		7D15595125CDD0EF00EA2ECC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7D4AD29C25CAC32F0032DF59 /* MTAuthorizationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTAuthorizationViewController.swift; sourceTree = "<group>"; };
 		7D4AD2A925CAD8BA0032DF59 /* MTSignInUpButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTSignInUpButton.swift; sourceTree = "<group>"; };
 		7D4AD2B325CB24510032DF59 /* MTCustomLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTCustomLabel.swift; sourceTree = "<group>"; };
@@ -45,12 +51,31 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				85D30C2A684F919FD66E55AA /* Pods_MoneyTrackingApplication.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		42F928772C9A40B16730516C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3CC2750692D66A5668EB34A1 /* Pods-MoneyTrackingApplication.debug.xcconfig */,
+				2D6A0F911D28EFB2E47B8FED /* Pods-MoneyTrackingApplication.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		4F81650A81D80CF0A8EB256D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				056563BD68589CA76F2BA9AB /* Pods_MoneyTrackingApplication.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		7D4AD2A725CAD8830032DF59 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +106,8 @@
 			children = (
 				7DC1AF2925C9D4CF00E099A0 /* MoneyTrackingApplication */,
 				7DC1AF2825C9D4CF00E099A0 /* Products */,
+				42F928772C9A40B16730516C /* Pods */,
+				4F81650A81D80CF0A8EB256D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -131,6 +158,7 @@
 		7DC1AF4225C9D52000E099A0 /* Plists */ = {
 			isa = PBXGroup;
 			children = (
+				7D15595125CDD0EF00EA2ECC /* GoogleService-Info.plist */,
 				7DC1AF3825C9D4CF00E099A0 /* Info.plist */,
 			);
 			path = Plists;
@@ -143,9 +171,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7DC1AF3B25C9D4CF00E099A0 /* Build configuration list for PBXNativeTarget "MoneyTrackingApplication" */;
 			buildPhases = (
+				D115F742F89D3D289BC0A084 /* [CP] Check Pods Manifest.lock */,
 				7DC1AF2325C9D4CE00E099A0 /* Sources */,
 				7DC1AF2425C9D4CE00E099A0 /* Frameworks */,
 				7DC1AF2525C9D4CE00E099A0 /* Resources */,
+				DE0AA304FACB8BF4E92BAF65 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -194,12 +224,55 @@
 			buildActionMask = 2147483647;
 			files = (
 				7DC1AF3725C9D4CF00E099A0 /* LaunchScreen.storyboard in Resources */,
+				7D15595225CDD0EF00EA2ECC /* GoogleService-Info.plist in Resources */,
 				7DC1AF3425C9D4CF00E099A0 /* Assets.xcassets in Resources */,
 				7DC1AF3225C9D4CF00E099A0 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		D115F742F89D3D289BC0A084 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MoneyTrackingApplication-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DE0AA304FACB8BF4E92BAF65 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MoneyTrackingApplication/Pods-MoneyTrackingApplication-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MoneyTrackingApplication/Pods-MoneyTrackingApplication-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MoneyTrackingApplication/Pods-MoneyTrackingApplication-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		7DC1AF2325C9D4CE00E099A0 /* Sources */ = {
@@ -359,6 +432,7 @@
 		};
 		7DC1AF3C25C9D4CF00E099A0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3CC2750692D66A5668EB34A1 /* Pods-MoneyTrackingApplication.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -378,6 +452,7 @@
 		};
 		7DC1AF3D25C9D4CF00E099A0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2D6A0F911D28EFB2E47B8FED /* Pods-MoneyTrackingApplication.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
