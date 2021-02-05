@@ -31,6 +31,7 @@ class MTCustomTextField: UITextField {
         self.isSecureTextEntry = isSecureTextEntry
     }
     
+    // MARK: - Add icons in textField
     func addLeftIcon(named: String) {
         let leftImageView = UIImageView()
         leftImageView.image = UIImage(named: named)
@@ -42,13 +43,6 @@ class MTCustomTextField: UITextField {
         self.leftView = leftView
         self.leftViewMode = UITextField.ViewMode.always
     }
-
-    private lazy var textFieldEyeButton: UIButton = {
-        let button = UIButton()
-        button.setImage(UIImage(named: "eyeIcon"), for: .normal)
-        button.addTarget(self, action: #selector(self.preesEyeButton), for: .touchUpInside)
-        return button
-    }()
     
     func addRigthIcon() {
         let rightView = UIView()
@@ -60,6 +54,23 @@ class MTCustomTextField: UITextField {
         self.rightViewMode = UITextField.ViewMode.always
     }
     
+    // MARK: - Add bottom border
+    func addBottomBorder(widthSelfTextField: CGFloat, heidthSelfTextField:CGFloat) {
+        let bottomLine = CALayer()
+        bottomLine.frame = CGRect.init(x: 0, y: heidthSelfTextField + 4, width: widthSelfTextField, height: 1)
+        bottomLine.backgroundColor = UIColor(red: 68.0/255.0, green: 71.0/255.0, blue: 234.0/255.0, alpha: 1.0).cgColor
+        self.borderStyle = UITextField.BorderStyle.none
+        self.layer.addSublayer(bottomLine)
+    }
+    
+    // MARK: - Eye button for password
+    private lazy var textFieldEyeButton: UIButton = {
+        let button = UIButton()
+        button.setImage(UIImage(named: "eyeIcon"), for: .normal)
+        button.addTarget(self, action: #selector(self.preesEyeButton), for: .touchUpInside)
+        return button
+    }()
+    
     @objc func preesEyeButton() {
         if self.isSecureTextEntry {
             self.textFieldEyeButton.setImage(UIImage(named: "eyeBlockIcon"), for: .normal)
@@ -68,14 +79,6 @@ class MTCustomTextField: UITextField {
             self.textFieldEyeButton.setImage(UIImage(named: "eyeIcon"), for: .normal)
             self.isSecureTextEntry = true
         }
-    }
-    
-    func addBottomBorder(widthSelfTextField: CGFloat, heidthSelfTextField:CGFloat) {
-        let bottomLine = CALayer()
-        bottomLine.frame = CGRect.init(x: 0, y: heidthSelfTextField + 4, width: widthSelfTextField, height: 1)
-        bottomLine.backgroundColor = UIColor(red: 68.0/255.0, green: 71.0/255.0, blue: 234.0/255.0, alpha: 1.0).cgColor
-        self.borderStyle = UITextField.BorderStyle.none
-        self.layer.addSublayer(bottomLine)
     }
 }
 
