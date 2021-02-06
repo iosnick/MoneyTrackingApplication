@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MTRegisterViewController: UIViewController {
+class MTRegisterViewController: UIViewController, UITextFieldDelegate {
     // MARK: - GUI Variables
     private lazy var createAccountLabel: MTCustomLabel = {
         let label = MTCustomLabel()
@@ -24,6 +24,7 @@ class MTRegisterViewController: UIViewController {
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.setTextFieldProperties(placeHolderText: "User name")
         textField.addLeftIcon(named: "userIcon")
+        textField.textContentType = .name
         textField.addBottomBorder(widthSelfTextField: 300, heidthSelfTextField: 26)
         return textField
     }()
@@ -33,6 +34,7 @@ class MTRegisterViewController: UIViewController {
         textField.setTextFieldProperties(isSecureTextEntry: true, placeHolderText: "Password")
         textField.addLeftIcon(named: "lockIcon")
         textField.addRigthIcon()
+        textField.textContentType = .newPassword
         textField.addBottomBorder(widthSelfTextField: 300, heidthSelfTextField: 26)
         return textField
     }()
@@ -42,6 +44,7 @@ class MTRegisterViewController: UIViewController {
         textField.setTextFieldProperties(isSecureTextEntry: true, placeHolderText: "Repeat password")
         textField.addLeftIcon(named: "lockIcon")
         textField.addRigthIcon()
+        textField.textContentType = .newPassword
         textField.addBottomBorder(widthSelfTextField: 300, heidthSelfTextField: 26)
         return textField
     }()
@@ -52,7 +55,7 @@ class MTRegisterViewController: UIViewController {
                                    cornerRadius: 25,
                                    titleColor: .white,
                                    backgroundColor: UIColor(red: 68.0/255.0, green: 71.0/255.0, blue: 234.0/255.0, alpha: 1.0))
-//        button.addTarget(self, action: #selector(self.openAuthVC), for: .touchUpInside)
+        //        button.addTarget(self, action: #selector(self.openAuthVC), for: .touchUpInside)
         return button
     }()
     private lazy var signInLabel: MTCustomLabel = {
@@ -85,12 +88,28 @@ class MTRegisterViewController: UIViewController {
         
         self.view.backgroundColor = UIColor(red: 28/255, green: 26/255, blue: 38/255, alpha: 1)
         
+        self.userNameTextField.delegate = self
+        self.userPasswordTextField.delegate = self
+        self.userRepeatPasswordTextField.delegate = self
+        self.keyboardHideWhenTappedAround()
+        
         self.view.addSubviews([self.backgroundImageView ,self.createAccountLabel, self.userNameTextField,
                                self.userRepeatPasswordTextField, self.signUpButton, self.signInLabel,
                                self.signInButton, self.userPasswordTextField])
         self.addConstraints()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.registerForKeyboardNotifications()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        self.unregisterFromKeyboardNotifications()
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -102,7 +121,7 @@ class MTRegisterViewController: UIViewController {
         vc.modalPresentationStyle = .fullScreen
         present(vc, animated: true, completion: nil)
     }
-
+    
     // MARK: - Add constraints
     private func addConstraints() {
         var constraints = [NSLayoutConstraint]()
@@ -150,4 +169,33 @@ class MTRegisterViewController: UIViewController {
         // Activate (Applying)
         NSLayoutConstraint.activate(constraints)
     }
+    
+    // MARK: - Methods
+    @objc private func keyboardWillShow(_ notification: Notification) { }
+    
+    @objc private func keyboardWillHide() { }
+    
+    // MARK: - Observers
+    private func registerForKeyboardNotifications() {
+        self.unregisterFromKeyboardNotifications()
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(self.keyboardWillShow(_:)),
+                                               name: UIResponder.keyboardWillShowNotification,
+                                               object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(self.keyboardWillHide),
+                                               name: UIResponder.keyboardWillHideNotification,
+                                               object: nil)
+    }
+    
+    private func unregisterFromKeyboardNotifications() {
+        NotificationCenter.default.removeObserver(self,
+                                                  name: UIResponder.keyboardWillShowNotification,
+                                                  object: nil)
+        NotificationCenter.default.removeObserver(self,
+                                                  name: UIResponder.keyboardWillHideNotification,
+                                                  object: nil)
+    }
 }
+
