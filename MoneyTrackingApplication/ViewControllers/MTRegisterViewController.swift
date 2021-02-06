@@ -6,8 +6,14 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuth
 
-class MTRegisterViewController: UIViewController, UITextFieldDelegate {
+class MTRegisterViewController: UIViewController {
+    // MARK: Variables
+    open var ref = Database.database().reference().child("users")
+    
+    
     // MARK: - GUI Variables
     private lazy var createAccountLabel: MTCustomLabel = {
         let label = MTCustomLabel()
@@ -25,6 +31,15 @@ class MTRegisterViewController: UIViewController, UITextFieldDelegate {
         textField.setTextFieldProperties(placeHolderText: "User name")
         textField.addLeftIcon(named: "userIcon")
         textField.textContentType = .name
+        textField.addBottomBorder(widthSelfTextField: 300, heidthSelfTextField: 26)
+        return textField
+    }()
+    private lazy var userEmailTextField: MTCustomTextField = {
+        let textField = MTCustomTextField()
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        textField.setTextFieldProperties(placeHolderText: "Email")
+        textField.addLeftIcon(named: "userIcon")
+        textField.textContentType = .emailAddress
         textField.addBottomBorder(widthSelfTextField: 300, heidthSelfTextField: 26)
         return textField
     }()
@@ -55,7 +70,7 @@ class MTRegisterViewController: UIViewController, UITextFieldDelegate {
                                    cornerRadius: 25,
                                    titleColor: .white,
                                    backgroundColor: UIColor(red: 68.0/255.0, green: 71.0/255.0, blue: 234.0/255.0, alpha: 1.0))
-        //        button.addTarget(self, action: #selector(self.openAuthVC), for: .touchUpInside)
+        button.addTarget(self, action: #selector(self.userRegister), for: .touchUpInside)
         return button
     }()
     private lazy var signInLabel: MTCustomLabel = {
@@ -95,7 +110,7 @@ class MTRegisterViewController: UIViewController, UITextFieldDelegate {
         
         self.view.addSubviews([self.backgroundImageView ,self.createAccountLabel, self.userNameTextField,
                                self.userRepeatPasswordTextField, self.signUpButton, self.signInLabel,
-                               self.signInButton, self.userPasswordTextField])
+                               self.signInButton, self.userPasswordTextField, self.userEmailTextField])
         self.addConstraints()
     }
     
@@ -113,6 +128,37 @@ class MTRegisterViewController: UIViewController, UITextFieldDelegate {
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    // MARK: - Alerts
+    private func showAlert() {
+        let alert = UIAlertController(title: "Error", message: "Just fill all of the fields", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .destructive, handler: nil))
+        present(alert, animated: true, completion: nil)
+    }
+    
+    // MARK: - Register methods
+    @objc private func userRegister() {
+        let name = userNameTextField.text!
+        let email = userEmailTextField.text!
+        let password = userPasswordTextField.text!
+        let repeatPassword = userRepeatPasswordTextField.text!
+        
+        if !name.isEmpty, !email.isEmpty, !password.isEmpty, !repeatPassword.isEmpty, password == repeatPassword {
+            Auth.auth().createUser(withEmail: email, password: password) { (result, error) in
+                if error == nil {
+                    if let result = result {
+                        self.ref.child(result.user.uid).updateChildValues(["name": name , "email": email])
+                        
+                        self.present(MTMainViewController(), animated: true, completion: nil)
+                    }
+                } else {
+                    print(error)
+                }
+            }
+        } else {
+            self.showAlert()
+        }
     }
     
     // MARK: - Open View Controllers
@@ -136,6 +182,11 @@ class MTRegisterViewController: UIViewController, UITextFieldDelegate {
         constraints.append(userNameTextField.topAnchor.constraint(equalTo: view.topAnchor, constant: 322))
         constraints.append(userNameTextField.widthAnchor.constraint(equalToConstant: 300))
         constraints.append(userNameTextField.heightAnchor.constraint(equalToConstant: 26))
+        
+        constraints.append(userEmailTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 38))
+        constraints.append(userEmailTextField.topAnchor.constraint(equalTo: view.topAnchor, constant: 288))
+        constraints.append(userEmailTextField.widthAnchor.constraint(equalToConstant: 300))
+        constraints.append(userEmailTextField.heightAnchor.constraint(equalToConstant: 26))
         
         constraints.append(userPasswordTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 38))
         constraints.append(userPasswordTextField.topAnchor.constraint(equalTo: view.topAnchor, constant: 369))
@@ -170,7 +221,7 @@ class MTRegisterViewController: UIViewController, UITextFieldDelegate {
         NSLayoutConstraint.activate(constraints)
     }
     
-    // MARK: - Methods
+    // MARK: - Keyboard Methods
     @objc private func keyboardWillShow(_ notification: Notification) { }
     
     @objc private func keyboardWillHide() { }
@@ -199,3 +250,9 @@ class MTRegisterViewController: UIViewController, UITextFieldDelegate {
     }
 }
 
+extension MTRegisterViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.dismissKeyboard()
+        return true
+    }
+}

@@ -6,8 +6,10 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuth
 
-class MTAuthorizationViewController: UIViewController, UITextFieldDelegate {
+class MTAuthorizationViewController: UIViewController {
     // MARK: - GUI Variables
     private lazy var welcomeBackLabel: MTCustomLabel = {
         let label = MTCustomLabel()
@@ -19,7 +21,7 @@ class MTAuthorizationViewController: UIViewController, UITextFieldDelegate {
                                  lines: 2)
         return label
     }()
-    private lazy var userNameTextField: MTCustomTextField = {
+    private lazy var userEmailTextField: MTCustomTextField = {
         let textField = MTCustomTextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.setTextFieldProperties(placeHolderText: "User name")
@@ -45,7 +47,7 @@ class MTAuthorizationViewController: UIViewController, UITextFieldDelegate {
                                    cornerRadius: 25,
                                    titleColor: .white,
                                    backgroundColor: UIColor(red: 68.0/255.0, green: 71.0/255.0, blue: 234.0/255.0, alpha: 1.0))
-        //        button.addTarget(self, action: #selector(self.openAuthVC), for: .touchUpInside)
+        button.addTarget(self, action: #selector(self.userAuth), for: .touchUpInside)
         return button
     }()
     private lazy var signUpLabel: MTCustomLabel = {
@@ -71,11 +73,11 @@ class MTAuthorizationViewController: UIViewController, UITextFieldDelegate {
         
         self.view.backgroundColor = UIColor(red: 28/255, green: 26/255, blue: 38/255, alpha: 1)
         
-        self.userNameTextField.delegate = self
+        self.userEmailTextField.delegate = self
         self.userPasswordTextField.delegate = self
         self.keyboardHideWhenTappedAround()
         
-        self.view.addSubviews([self.welcomeBackLabel, self.userNameTextField, self.userPasswordTextField,
+        self.view.addSubviews([self.welcomeBackLabel, self.userEmailTextField, self.userPasswordTextField,
                                self.signUpButton, self.signInButton, self.signUpLabel])
         self.addConstraints()
     }
@@ -96,6 +98,31 @@ class MTAuthorizationViewController: UIViewController, UITextFieldDelegate {
         super.didReceiveMemoryWarning()
     }
     
+    // MARK: - Alerts
+    private func showAlert() {
+        let alert = UIAlertController(title: "Error", message: "Just fill all of the fields", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .destructive, handler: nil))
+        present(alert, animated: true, completion: nil)
+    }
+    
+    // MARK: - Register methods
+    @objc private func userAuth() {
+        let email = userEmailTextField.text!
+        let password = userPasswordTextField.text!
+        
+        if !email.isEmpty, !password.isEmpty {
+            Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
+                if error == nil {
+                    self.present(MTMainViewController(), animated: true, completion: nil)
+                } else {
+                    print(error)
+                }
+            }
+        } else {
+            self.showAlert()
+        }
+    }
+    
     // MARK: - Open View Controllers
     @objc private func openRegisterVC() {
         let vc = MTRegisterViewController()
@@ -113,10 +140,10 @@ class MTAuthorizationViewController: UIViewController, UITextFieldDelegate {
         constraints.append(welcomeBackLabel.widthAnchor.constraint(equalToConstant: 170))
         constraints.append(welcomeBackLabel.heightAnchor.constraint(equalToConstant: 86))
         
-        constraints.append(userNameTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 38))
-        constraints.append(userNameTextField.topAnchor.constraint(equalTo: view.topAnchor, constant: 371))
-        constraints.append(userNameTextField.widthAnchor.constraint(equalToConstant: 300))
-        constraints.append(userNameTextField.heightAnchor.constraint(equalToConstant: 26))
+        constraints.append(userEmailTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 38))
+        constraints.append(userEmailTextField.topAnchor.constraint(equalTo: view.topAnchor, constant: 371))
+        constraints.append(userEmailTextField.widthAnchor.constraint(equalToConstant: 300))
+        constraints.append(userEmailTextField.heightAnchor.constraint(equalToConstant: 26))
         
         constraints.append(userPasswordTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 38))
         constraints.append(userPasswordTextField.topAnchor.constraint(equalTo: view.topAnchor, constant: 418))
@@ -171,3 +198,9 @@ class MTAuthorizationViewController: UIViewController, UITextFieldDelegate {
     }
 }
 
+extension MTAuthorizationViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.dismissKeyboard()
+        return true
+    }
+}

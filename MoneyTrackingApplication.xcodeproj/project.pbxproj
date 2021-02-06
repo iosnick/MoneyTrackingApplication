@@ -17,9 +17,7 @@
 		7D4AD2C025CC68730032DF59 /* MTRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4AD2BF25CC68730032DF59 /* MTRegisterViewController.swift */; };
 		7D4AD2C425CC6D8F0032DF59 /* MTCustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4AD2C325CC6D8F0032DF59 /* MTCustomTextField.swift */; };
 		7DC1AF2B25C9D4CF00E099A0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DC1AF2A25C9D4CF00E099A0 /* AppDelegate.swift */; };
-		7DC1AF2D25C9D4CF00E099A0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DC1AF2C25C9D4CF00E099A0 /* SceneDelegate.swift */; };
 		7DC1AF2F25C9D4CF00E099A0 /* MTGreetingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DC1AF2E25C9D4CF00E099A0 /* MTGreetingViewController.swift */; };
-		7DC1AF3225C9D4CF00E099A0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DC1AF3025C9D4CF00E099A0 /* Main.storyboard */; };
 		7DC1AF3425C9D4CF00E099A0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7DC1AF3325C9D4CF00E099A0 /* Assets.xcassets */; };
 		7DC1AF3725C9D4CF00E099A0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DC1AF3525C9D4CF00E099A0 /* LaunchScreen.storyboard */; };
 		85D30C2A684F919FD66E55AA /* Pods_MoneyTrackingApplication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 056563BD68589CA76F2BA9AB /* Pods_MoneyTrackingApplication.framework */; };
@@ -40,9 +38,7 @@
 		7D4AD2C325CC6D8F0032DF59 /* MTCustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTCustomTextField.swift; sourceTree = "<group>"; };
 		7DC1AF2725C9D4CF00E099A0 /* MoneyTrackingApplication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoneyTrackingApplication.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7DC1AF2A25C9D4CF00E099A0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		7DC1AF2C25C9D4CF00E099A0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		7DC1AF2E25C9D4CF00E099A0 /* MTGreetingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTGreetingViewController.swift; sourceTree = "<group>"; };
-		7DC1AF3125C9D4CF00E099A0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7DC1AF3325C9D4CF00E099A0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7DC1AF3625C9D4CF00E099A0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7DC1AF3825C9D4CF00E099A0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -125,7 +121,6 @@
 			isa = PBXGroup;
 			children = (
 				7DC1AF2A25C9D4CF00E099A0 /* AppDelegate.swift */,
-				7DC1AF2C25C9D4CF00E099A0 /* SceneDelegate.swift */,
 				7DC1AF3F25C9D4F800E099A0 /* ViewControllers */,
 				7D4AD2A725CAD8830032DF59 /* Views */,
 				7D4AD2A825CAD88B0032DF59 /* Controls */,
@@ -152,7 +147,6 @@
 			isa = PBXGroup;
 			children = (
 				7DC1AF3525C9D4CF00E099A0 /* LaunchScreen.storyboard */,
-				7DC1AF3025C9D4CF00E099A0 /* Main.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -228,7 +222,6 @@
 				7DC1AF3725C9D4CF00E099A0 /* LaunchScreen.storyboard in Resources */,
 				7D15595225CDD0EF00EA2ECC /* GoogleService-Info.plist in Resources */,
 				7DC1AF3425C9D4CF00E099A0 /* Assets.xcassets in Resources */,
-				7DC1AF3225C9D4CF00E099A0 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,7 +279,6 @@
 				7D15596E25CE950400EA2ECC /* UIViewController+Ex.swift in Sources */,
 				7D4AD2BA25CBF8BA0032DF59 /* UIView+Ex.swift in Sources */,
 				7D4AD2C425CC6D8F0032DF59 /* MTCustomTextField.swift in Sources */,
-				7DC1AF2D25C9D4CF00E099A0 /* SceneDelegate.swift in Sources */,
 				7D4AD2B425CB24510032DF59 /* MTCustomLabel.swift in Sources */,
 				7D15594F25CDC3E800EA2ECC /* MTMainViewController.swift in Sources */,
 				7D4AD29D25CAC32F0032DF59 /* MTAuthorizationViewController.swift in Sources */,
@@ -298,14 +290,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		7DC1AF3025C9D4CF00E099A0 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				7DC1AF3125C9D4CF00E099A0 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		7DC1AF3525C9D4CF00E099A0 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

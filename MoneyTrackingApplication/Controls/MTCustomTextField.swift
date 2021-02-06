@@ -23,10 +23,12 @@ class MTCustomTextField: UITextField {
                                 placeHolderText: String,
                                 textColor: UIColor = .white,
                                 placeHolderTextSize: CGFloat = 12,
-                                returnKeyType: UIReturnKeyType = .done) {
+                                returnKeyType: UIReturnKeyType = .done,
+                                textFont: UIFont = .systemFont(ofSize: 15)) {
         self.attributedPlaceholder = NSAttributedString(string: placeHolderText,
                                                         attributes: [NSAttributedString.Key.foregroundColor: UIColor(white: 1, alpha: 0.75),
                                                                      NSAttributedString.Key.font: UIFont.systemFont(ofSize: placeHolderTextSize)])
+        self.font = textFont
         self.layer.backgroundColor = backgroundColor
         self.textColor = textColor
         self.isSecureTextEntry = isSecureTextEntry
