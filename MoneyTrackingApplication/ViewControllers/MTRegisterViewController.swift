@@ -132,7 +132,7 @@ class MTRegisterViewController: UIViewController {
     
     // MARK: - Alerts
     private func showAlert() {
-        let alert = UIAlertController(title: "Error", message: "Just fill all of the fields", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Oops!", message: "Just fill all of the fields", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .destructive, handler: nil))
         present(alert, animated: true, completion: nil)
     }

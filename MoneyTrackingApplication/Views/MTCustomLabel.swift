@@ -19,7 +19,7 @@ class MTCustomLabel: UILabel {
     
     // MARK: - Methods
     func setLabelProperties(textColor: UIColor,
-                            text: String,
+                            text: String = "",
                             textAlignment: NSTextAlignment = .center,
                             font: UIFont,
                             lines: Int = 1) {
