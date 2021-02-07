@@ -43,7 +43,7 @@ class MTAuthorizationViewController: UIViewController {
     private lazy var signInButton: MTSignInUpButton = {
         let button = MTSignInUpButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setButtonProperties(title: "Sign Up",
+        button.setButtonProperties(title: "Sign In",
                                    cornerRadius: 25,
                                    titleColor: .white,
                                    backgroundColor: UIColor(red: 68.0/255.0, green: 71.0/255.0, blue: 234.0/255.0, alpha: 1.0))
@@ -66,6 +66,13 @@ class MTAuthorizationViewController: UIViewController {
         button.addTarget(self, action: #selector(self.openRegisterVC), for: .touchUpInside)
         return button
     }()
+    private lazy var backgroundImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.alpha = 0.06
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.image = UIImage(named: "backgroundImage")
+        return imageView
+    }()
     
     // MARK: - Life cicle
     override func viewDidLoad() {
@@ -78,7 +85,7 @@ class MTAuthorizationViewController: UIViewController {
         self.keyboardHideWhenTappedAround()
         
         self.view.addSubviews([self.welcomeBackLabel, self.userEmailTextField, self.userPasswordTextField,
-                               self.signUpButton, self.signInButton, self.signUpLabel])
+                               self.signUpButton, self.signInButton, self.signUpLabel, self.backgroundImageView])
         self.addConstraints()
     }
     
@@ -111,11 +118,12 @@ class MTAuthorizationViewController: UIViewController {
         let password = userPasswordTextField.text!
         
         if !email.isEmpty, !password.isEmpty {
-            Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
+            Auth.auth().signIn(withEmail: email, password: password) { [weak self] (result, error) in
+                guard let self = self else { return }
                 if error == nil {
                     self.present(MTMainViewController(), animated: true, completion: nil)
                 } else {
-                    print(error)
+                    print(error!)
                 }
             }
         } else {
@@ -164,6 +172,10 @@ class MTAuthorizationViewController: UIViewController {
         constraints.append(signUpButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 544))
         constraints.append(signUpButton.widthAnchor.constraint(equalToConstant: 53))
         constraints.append(signUpButton.heightAnchor.constraint(equalToConstant: 18))
+        
+        constraints.append(backgroundImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: -170))
+        constraints.append(backgroundImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 230))
+        constraints.append(backgroundImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 0))
         
         // Activate (Applying)
         NSLayoutConstraint.activate(constraints)

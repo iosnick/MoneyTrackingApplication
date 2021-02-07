@@ -10,8 +10,8 @@ import Firebase
 import FirebaseAuth
 
 class MTRegisterViewController: UIViewController {
-    // MARK: Variables
-    open var ref = Database.database().reference().child("users")
+    // MARK: - Reference to database
+    private var ref = Database.database().reference().child("users")
     
     
     // MARK: - GUI Variables
@@ -104,6 +104,7 @@ class MTRegisterViewController: UIViewController {
         self.view.backgroundColor = UIColor(red: 28/255, green: 26/255, blue: 38/255, alpha: 1)
         
         self.userNameTextField.delegate = self
+        self.userEmailTextField.delegate = self
         self.userPasswordTextField.delegate = self
         self.userRepeatPasswordTextField.delegate = self
         self.keyboardHideWhenTappedAround()
@@ -153,7 +154,7 @@ class MTRegisterViewController: UIViewController {
                         self.present(MTMainViewController(), animated: true, completion: nil)
                     }
                 } else {
-                    print(error)
+                    print(error!)
                 }
             }
         } else {

@@ -12,7 +12,7 @@ import FirebaseAuth
 
 class MTMainViewController: UIViewController {
     // MARK: - Reference to database
-    let ref = Database.database().reference()
+    private let ref = Database.database().reference()
     
     // MARK: - Properties
     private var username = ""
