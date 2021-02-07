@@ -8,6 +8,9 @@
 import UIKit
 
 class MTGreetingViewController: UIViewController {
+    // MARK: - Variables
+    private var buttonBounds: CGRect = .null
+    
     // MARK: - GUI Variables
     private lazy var welcomeLabel: MTCustomLabel = {
         let label = MTCustomLabel()
@@ -77,7 +80,6 @@ class MTGreetingViewController: UIViewController {
         return imageView
     }()
     
-    
     // MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -88,6 +90,12 @@ class MTGreetingViewController: UIViewController {
                                self.signUpButton, self.greetingImageView])
         
         self.addConstraints()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        self.signUpButton.setupGradient(buttonCornerRadius: self.signUpButton.layer.cornerRadius, bounds: self.signUpButton.bounds)
     }
     
     // MARK: - Open View Controllers

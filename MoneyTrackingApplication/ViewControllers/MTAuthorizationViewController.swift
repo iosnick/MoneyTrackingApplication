@@ -100,6 +100,13 @@ class MTAuthorizationViewController: UIViewController {
         self.unregisterFromKeyboardNotifications()
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        self.signInButton.setupGradient(buttonCornerRadius: self.signInButton.layer.cornerRadius, bounds: self.signInButton.bounds)
+    }
+
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }

@@ -122,6 +122,12 @@ class MTRegisterViewController: UIViewController {
         self.unregisterFromKeyboardNotifications()
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        self.signUpButton.setupGradient(buttonCornerRadius: self.signUpButton.layer.cornerRadius, bounds: self.signUpButton.bounds)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }

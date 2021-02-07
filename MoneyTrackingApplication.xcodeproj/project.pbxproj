@@ -25,6 +25,7 @@
 		7DCE20DE25D071A1004C692B /* MTBankViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DCE20DD25D071A1004C692B /* MTBankViewController.swift */; };
 		7DCE20E225D073A4004C692B /* MTTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DCE20E125D073A4004C692B /* MTTabBarViewController.swift */; };
 		7DCE20E725D07592004C692B /* MTAddingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DCE20E625D07592004C692B /* MTAddingViewController.swift */; };
+		7DCE20EB25D08704004C692B /* UIButton+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DCE20EA25D08704004C692B /* UIButton+Ex.swift */; };
 		85D30C2A684F919FD66E55AA /* Pods_MoneyTrackingApplication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 056563BD68589CA76F2BA9AB /* Pods_MoneyTrackingApplication.framework */; };
 /* End PBXBuildFile section */
 
@@ -52,6 +53,7 @@
 		7DCE20DD25D071A1004C692B /* MTBankViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTBankViewController.swift; sourceTree = "<group>"; };
 		7DCE20E125D073A4004C692B /* MTTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTTabBarViewController.swift; sourceTree = "<group>"; };
 		7DCE20E625D07592004C692B /* MTAddingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTAddingViewController.swift; sourceTree = "<group>"; };
+		7DCE20EA25D08704004C692B /* UIButton+Ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Ex.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 			children = (
 				7D4AD2B925CBF8BA0032DF59 /* UIView+Ex.swift */,
 				7D15596D25CE950400EA2ECC /* UIViewController+Ex.swift */,
+				7DCE20EA25D08704004C692B /* UIButton+Ex.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -303,6 +306,7 @@
 				7D4AD29D25CAC32F0032DF59 /* MTAuthorizationViewController.swift in Sources */,
 				7D4AD2C025CC68730032DF59 /* MTRegisterViewController.swift in Sources */,
 				7DCE20E725D07592004C692B /* MTAddingViewController.swift in Sources */,
+				7DCE20EB25D08704004C692B /* UIButton+Ex.swift in Sources */,
 				7D4AD2AA25CAD8BA0032DF59 /* MTSignInUpButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
