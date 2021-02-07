@@ -120,7 +120,8 @@ class MTAuthorizationViewController: UIViewController {
             Auth.auth().signIn(withEmail: email, password: password) { [weak self] (result, error) in
                 guard let self = self else { return }
                 if error == nil {
-                    self.present(MTMainViewController(), animated: true, completion: nil)
+                    let vc = MTMainViewController()
+                    self.navigationController?.pushViewController(vc, animated: true)
                 } else {
                     print(error!)
                 }

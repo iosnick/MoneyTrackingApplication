@@ -141,12 +141,15 @@ class MTRegisterViewController: UIViewController {
         let repeatPassword = userRepeatPasswordTextField.text!
         
         if !name.isEmpty, !email.isEmpty, !password.isEmpty, !repeatPassword.isEmpty, password == repeatPassword {
-            Auth.auth().createUser(withEmail: email, password: password) { (result, error) in
+            Auth.auth().createUser(withEmail: email, password: password) { [weak self] (result, error) in
+                guard let self = self else { return }
                 if error == nil {
-                    let chaneRequest = Auth.auth().currentUser?.createProfileChangeRequest()
-                    chaneRequest?.displayName = name
-                    chaneRequest?.commitChanges(completion: nil)
-                    self.present(MTMainViewController(), animated: true, completion: nil)
+                    let changeRequest = result?.user.createProfileChangeRequest()
+                    changeRequest?.displayName = name
+                    changeRequest?.commitChanges(completion: nil)
+                    
+                    let vc = MTMainViewController()
+                    self.navigationController?.pushViewController(vc, animated: true)
                 } else {
                     print(error!)
                 }

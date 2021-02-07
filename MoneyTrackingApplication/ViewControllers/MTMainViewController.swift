@@ -27,7 +27,7 @@ class MTMainViewController: UIViewController {
             print(error)
         }
     }
-    
+
     // MARK: - GUI Variables
     private lazy var nameLabel: MTCustomLabel = {
         let label = MTCustomLabel()
@@ -54,7 +54,7 @@ class MTMainViewController: UIViewController {
         super.viewDidLoad()
         
         self.view.backgroundColor = .white
-        
+
         self.view.addSubviews([self.nameLabel, self.button])
         self.addConstraints()
     }
