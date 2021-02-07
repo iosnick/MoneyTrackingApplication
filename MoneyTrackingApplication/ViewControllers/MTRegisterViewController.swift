@@ -6,14 +6,9 @@
 //
 
 import UIKit
-import Firebase
 import FirebaseAuth
 
 class MTRegisterViewController: UIViewController {
-    // MARK: - Reference to database
-    private var ref = Database.database().reference().child("users")
-    
-    
     // MARK: - GUI Variables
     private lazy var createAccountLabel: MTCustomLabel = {
         let label = MTCustomLabel()
@@ -148,11 +143,10 @@ class MTRegisterViewController: UIViewController {
         if !name.isEmpty, !email.isEmpty, !password.isEmpty, !repeatPassword.isEmpty, password == repeatPassword {
             Auth.auth().createUser(withEmail: email, password: password) { (result, error) in
                 if error == nil {
-                    if let result = result {
-                        self.ref.child(result.user.uid).updateChildValues(["name": name , "email": email])
-                        
-                        self.present(MTMainViewController(), animated: true, completion: nil)
-                    }
+                    let chaneRequest = Auth.auth().currentUser?.createProfileChangeRequest()
+                    chaneRequest?.displayName = name
+                    chaneRequest?.commitChanges(completion: nil)
+                    self.present(MTMainViewController(), animated: true, completion: nil)
                 } else {
                     print(error!)
                 }

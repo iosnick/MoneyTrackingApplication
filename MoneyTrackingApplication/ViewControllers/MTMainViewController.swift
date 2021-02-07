@@ -6,17 +6,10 @@
 //
 
 import UIKit
-import Firebase
 import FirebaseAuth
 
 
 class MTMainViewController: UIViewController {
-    // MARK: - Reference to database
-    private let ref = Database.database().reference()
-    
-    // MARK: - Properties
-    private var username = ""
-    
     // MARK: - Temp button
     private lazy var button: UIButton = {
         let button = UIButton()
@@ -40,21 +33,22 @@ class MTMainViewController: UIViewController {
         let label = MTCustomLabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.setLabelProperties(textColor: .blue,
+                                 text: "Hello \(Auth.auth().currentUser?.displayName?.description ?? "")",
                                  textAlignment: .left,
                                  font: UIFont.systemFont(ofSize: 31))
         return label
     }()
     
     // MARK: - Life cicle
-    override func loadView() {
-        super.loadView()
-        
-        self.ref.child("users").child(Auth.auth().currentUser!.uid).observe(.value, with: { snapshot in
-            let userInfo = snapshot.value as? NSDictionary
-            let userName = userInfo!["name"] as! String
-            self.nameLabel.text = "Hello, \(userName)"
-        })
-    }
+//    override func loadView() {
+//        super.loadView()
+//
+//                self.ref.child("users").child(Auth.auth().currentUser!.uid).observe(.value, with: { snapshot in
+//            let userInfo = snapshot.value as? NSDictionary
+//            let userName = userInfo!["name"] as! String
+//            self.nameLabel.text = "Hello, \(userName)"
+//        })
+//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
