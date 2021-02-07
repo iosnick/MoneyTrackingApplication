@@ -73,18 +73,18 @@ class MTAuthorizationViewController: UIViewController {
         return imageView
     }()
     
-    // MARK: - Life cicle
+    // MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.view.backgroundColor = UIColor(red: 28/255, green: 26/255, blue: 38/255, alpha: 1)
+        self.view.addSubviews([self.welcomeBackLabel, self.userEmailTextField, self.userPasswordTextField,
+                               self.signUpButton, self.signInButton, self.signUpLabel, self.backgroundImageView])
         
         self.userEmailTextField.delegate = self
         self.userPasswordTextField.delegate = self
-        self.keyboardHideWhenTappedAround()
         
-        self.view.addSubviews([self.welcomeBackLabel, self.userEmailTextField, self.userPasswordTextField,
-                               self.signUpButton, self.signInButton, self.signUpLabel, self.backgroundImageView])
+        self.keyboardHideWhenTappedAround()
         self.addConstraints()
     }
     
@@ -120,7 +120,7 @@ class MTAuthorizationViewController: UIViewController {
             Auth.auth().signIn(withEmail: email, password: password) { [weak self] (result, error) in
                 guard let self = self else { return }
                 if error == nil {
-                    let vc = MTMainViewController()
+                    let vc = MTTabBarViewController()
                     self.navigationController?.pushViewController(vc, animated: true)
                 } else {
                     print(error!)

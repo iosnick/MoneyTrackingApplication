@@ -1,5 +1,5 @@
 //
-//  MTMainViewController.swift
+//  MTHomeViewController.swift
 //  MoneyTrackingApplication
 //
 //  Created by Вадим Бенько on 05.02.2021.
@@ -9,7 +9,7 @@ import UIKit
 import FirebaseAuth
 
 
-class MTMainViewController: UIViewController {
+class MTHomeViewController: UIViewController {
     // MARK: - Temp button
     private lazy var button: UIButton = {
         let button = UIButton()
@@ -39,7 +39,7 @@ class MTMainViewController: UIViewController {
         return label
     }()
     
-    // MARK: - Life cicle
+    // MARK: - Life cycle
 //    override func loadView() {
 //        super.loadView()
 //
@@ -53,17 +53,15 @@ class MTMainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.backgroundColor = .white
-
+        self.view.backgroundColor = UIColor(red: 28/255, green: 26/255, blue: 38/255, alpha: 1)
         self.view.addSubviews([self.nameLabel, self.button])
+        
         self.addConstraints()
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    
-    // MARK: - Open View Controllers
     
     // MARK: - Add constraints
     private func addConstraints() {
@@ -79,6 +77,7 @@ class MTMainViewController: UIViewController {
         constraints.append(button.topAnchor.constraint(equalTo: view.topAnchor, constant: 150))
         constraints.append(button.widthAnchor.constraint(equalToConstant: 174))
         constraints.append(button.heightAnchor.constraint(equalToConstant: 38))
+        
         
         // Activate (Applying)
         NSLayoutConstraint.activate(constraints)

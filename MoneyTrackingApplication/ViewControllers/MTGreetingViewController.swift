@@ -78,15 +78,15 @@ class MTGreetingViewController: UIViewController {
     }()
     
     
-    // MARK: - Life cicle
+    // MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.view.backgroundColor = UIColor(red: 28/255, green: 26/255, blue: 38/255, alpha: 1)
-        
         self.view.addSubviews([self.signInButton, self.signInLabel, self.fourthWelcomeLabel, self.thirdWelcomeLabel,
                                self.secondGreetingImageView, self.secondWelcomeLabel, self.welcomeLabel,
                                self.signUpButton, self.greetingImageView])
+        
         self.addConstraints()
     }
     

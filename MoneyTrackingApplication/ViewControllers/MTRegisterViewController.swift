@@ -92,21 +92,21 @@ class MTRegisterViewController: UIViewController {
         return imageView
     }()
     
-    // MARK: - Life cicle
+    // MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.view.backgroundColor = UIColor(red: 28/255, green: 26/255, blue: 38/255, alpha: 1)
+        self.view.addSubviews([self.backgroundImageView ,self.createAccountLabel, self.userNameTextField,
+                               self.userRepeatPasswordTextField, self.signUpButton, self.signInLabel,
+                               self.signInButton, self.userPasswordTextField, self.userEmailTextField])
         
         self.userNameTextField.delegate = self
         self.userEmailTextField.delegate = self
         self.userPasswordTextField.delegate = self
         self.userRepeatPasswordTextField.delegate = self
-        self.keyboardHideWhenTappedAround()
         
-        self.view.addSubviews([self.backgroundImageView ,self.createAccountLabel, self.userNameTextField,
-                               self.userRepeatPasswordTextField, self.signUpButton, self.signInLabel,
-                               self.signInButton, self.userPasswordTextField, self.userEmailTextField])
+        self.keyboardHideWhenTappedAround()
         self.addConstraints()
     }
     
@@ -148,7 +148,7 @@ class MTRegisterViewController: UIViewController {
                     changeRequest?.displayName = name
                     changeRequest?.commitChanges(completion: nil)
                     
-                    let vc = MTMainViewController()
+                    let vc = MTTabBarViewController()
                     self.navigationController?.pushViewController(vc, animated: true)
                 } else {
                     print(error!)

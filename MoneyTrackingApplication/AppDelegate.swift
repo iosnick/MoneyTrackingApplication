@@ -37,7 +37,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func showMainViewController() {
         self.window = UIWindow(frame: UIScreen.main.bounds)
-        self.window?.rootViewController = MTMainViewController()
+        self.window?.rootViewController = MTTabBarViewController()
         self.window?.makeKeyAndVisible()
     }
 }
