@@ -66,13 +66,13 @@ class MTGreetingViewController: UIViewController {
     }()
     private lazy var greetingImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "greetingVCImage")
+        imageView.image = UIImage(named: "greetingVCImage")?.withRenderingMode(.alwaysOriginal)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
     private lazy var secondGreetingImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "secondGreetingVCImage")
+        imageView.image = UIImage(named: "secondGreetingVCImage")?.withRenderingMode(.alwaysOriginal)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()

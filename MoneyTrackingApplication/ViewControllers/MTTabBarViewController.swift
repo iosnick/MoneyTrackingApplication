@@ -31,14 +31,21 @@ class MTTabBarViewController: UITabBarController {
         self.setViewControllers([homeVC, timeVC, addingVC, bankVC, settingsVC], animated: false)
         self.tabBar.barTintColor = UIColor(red: 28/255, green: 26/255, blue: 38/255, alpha: 1)
         self.tabBar.clipsToBounds = true
-        self.tabBar.tintColor = .white
+        self.tabBar.unselectedItemTintColor = .white
+        self.tabBar.tintColor = .yellow
         self.tabBar.isTranslucent = false
         
-        guard let items = self.tabBar.items else { return }
-        let images = ["homeIcon", "timeIcon", "addingIcon", "bankIcon", "settingsIcon"]
-        for x in 0...4 {
-            items[x].image = UIImage(named: images[x])
-        }
+        homeVC.tabBarItem.image = UIImage(named: "homeIcon")
+        timeVC.tabBarItem.image = UIImage(named: "timeIcon")
+        addingVC.tabBarItem.image = UIImage(named: "addingIcon")?.withRenderingMode(.alwaysOriginal)
+        bankVC.tabBarItem.image = UIImage(named: "bankIcon")
+        settingsVC.tabBarItem.image = UIImage(named: "settingsIcon")
+        
+//        guard let items = self.tabBar.items else { return }
+//        let images = ["homeIcon", "timeIcon", "addingIcon", "bankIcon", "settingsIcon"]
+//        for x in 0...4 {
+//            items[x].image = UIImage(named: images[x])
+//        }
         
     }
     private func setupProperties() {

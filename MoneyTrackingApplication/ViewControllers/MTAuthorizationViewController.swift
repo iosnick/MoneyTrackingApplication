@@ -69,7 +69,7 @@ class MTAuthorizationViewController: UIViewController {
         let imageView = UIImageView()
         imageView.alpha = 0.06
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.image = UIImage(named: "backgroundImage")
+        imageView.image = UIImage(named: "backgroundImage")?.withRenderingMode(.alwaysOriginal)
         return imageView
     }()
     
