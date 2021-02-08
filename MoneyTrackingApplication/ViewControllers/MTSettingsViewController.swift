@@ -15,4 +15,15 @@ class MTSettingsViewController: UIViewController {
         
         self.view.backgroundColor = .yellow
     }
+    
+    // MARK: - Add constraints
+    private func addConstraints() {
+        var constraints = [NSLayoutConstraint]()
+        
+        // Add
+        
+        
+        // Activate (Applying)
+        NSLayoutConstraint.activate(constraints)
+    }
 }

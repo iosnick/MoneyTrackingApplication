@@ -40,13 +40,6 @@ class MTTabBarViewController: UITabBarController {
         addingVC.tabBarItem.image = UIImage(named: "addingIcon")?.withRenderingMode(.alwaysOriginal)
         bankVC.tabBarItem.image = UIImage(named: "bankIcon")
         settingsVC.tabBarItem.image = UIImage(named: "settingsIcon")
-        
-//        guard let items = self.tabBar.items else { return }
-//        let images = ["homeIcon", "timeIcon", "addingIcon", "bankIcon", "settingsIcon"]
-//        for x in 0...4 {
-//            items[x].image = UIImage(named: images[x])
-//        }
-        
     }
     private func setupProperties() {
         
