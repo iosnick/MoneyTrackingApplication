@@ -37,7 +37,7 @@ class MTTabBarViewController: UITabBarController {
         
         homeVC.tabBarItem.image = UIImage(named: "homeIcon")
         timeVC.tabBarItem.image = UIImage(named: "timeIcon")
-        addingVC.tabBarItem.image = UIImage(named: "addingIcon")?.withRenderingMode(.alwaysOriginal)
+        addingVC.tabBarItem.image = UIImage(named: "addingIcon")
         bankVC.tabBarItem.image = UIImage(named: "bankIcon")
         settingsVC.tabBarItem.image = UIImage(named: "settingsIcon")
     }

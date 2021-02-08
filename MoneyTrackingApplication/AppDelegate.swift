@@ -19,10 +19,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
         Auth.auth().addStateDidChangeListener { [weak self] (auth, user) in
             guard let self = self else { return }
-            if user == nil {
-                self.showGreetingViewController()
+            if user != nil {
+                self.showTabBarViewController()
             } else {
-                self.showMainViewController()
+                self.showGreetingViewController()
             }
         }
         
@@ -30,14 +30,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func showGreetingViewController() {
+        let greetingVC = MTGreetingViewController()
+        
         self.window = UIWindow(frame: UIScreen.main.bounds)
-        self.window?.rootViewController = MTGreetingViewController()
+        self.window?.rootViewController = greetingVC
         self.window?.makeKeyAndVisible()
     }
-    
-    func showMainViewController() {
+
+    func showTabBarViewController() {
+        let tabBarVC = MTTabBarViewController()
+        
         self.window = UIWindow(frame: UIScreen.main.bounds)
-        self.window?.rootViewController = MTTabBarViewController()
+        self.window?.rootViewController = tabBarVC
         self.window?.makeKeyAndVisible()
     }
 }

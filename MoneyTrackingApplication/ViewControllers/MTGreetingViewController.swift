@@ -8,9 +8,6 @@
 import UIKit
 
 class MTGreetingViewController: UIViewController {
-    // MARK: - Variables
-    private var buttonBounds: CGRect = .null
-    
     // MARK: - GUI Variables
     private lazy var welcomeLabel: MTCustomLabel = {
         let label = MTCustomLabel()
