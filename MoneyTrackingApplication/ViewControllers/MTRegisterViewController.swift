@@ -75,7 +75,7 @@ class MTRegisterViewController: UIViewController {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.titleLabel?.adjustsFontSizeToFitWidth = true
         button.setButtonProperties(title: "Sign In",
-                                   titleColor: UIColor(red: 68.0/255.0, green: 71.0/255.0, blue: 234.0/255.0, alpha: 1.0),
+                                   titleColor: UIColor(red: 163/255, green: 90/255, blue: 255/255, alpha: 1),
                                    font: UIFont.systemFont(ofSize: 15))
         button.addTarget(self, action: #selector(self.openAuthVC), for: .touchUpInside)
         return button
@@ -121,15 +121,11 @@ class MTRegisterViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        self.setupBorderLines()
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
+        self.setupBorderLinesAddGradient()
     }
     
     // MARK: - Methods
-    private func setupBorderLines() {
+    private func setupBorderLinesAddGradient() {
         self.userNameTextField.addBottomBorder(width: self.userNameTextField.frame.width,
                                                    heidth: self.userNameTextField.frame.height)
         self.userEmailTextField.addBottomBorder(width: self.userEmailTextField.frame.width,

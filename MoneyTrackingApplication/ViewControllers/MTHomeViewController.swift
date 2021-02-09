@@ -32,8 +32,8 @@ class MTHomeViewController: UIViewController {
     private lazy var nameLabel: MTCustomLabel = {
         let label = MTCustomLabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.setLabelProperties(textColor: .blue,
-                                 text: "Hello \(Auth.auth().currentUser?.displayName?.description ?? "")",
+        label.setLabelProperties(textColor: .white,
+                                 text: "Welcome",
                                  textAlignment: .left,
                                  font: UIFont.systemFont(ofSize: 31))
         return label
@@ -59,10 +59,14 @@ class MTHomeViewController: UIViewController {
         self.addConstraints()
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        guard let userName = Auth.auth().currentUser?.displayName?.description else { return }
+        self.nameLabel.text = "Hello, \(userName)"
     }
     
+    // MARK: - Methods
     // MARK: - Add constraints
     private func addConstraints() {
         var constraints = [NSLayoutConstraint]()
@@ -70,7 +74,7 @@ class MTHomeViewController: UIViewController {
         // Add
         constraints.append(nameLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24))
         constraints.append(nameLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 81))
-        constraints.append(nameLabel.widthAnchor.constraint(equalToConstant: 174))
+        constraints.append(nameLabel.widthAnchor.constraint(equalToConstant: 270))
         constraints.append(nameLabel.heightAnchor.constraint(equalToConstant: 38))
         
         constraints.append(button.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 100))

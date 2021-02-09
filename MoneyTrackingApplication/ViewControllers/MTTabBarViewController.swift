@@ -14,10 +14,11 @@ class MTTabBarViewController: UITabBarController {
 
         self.setupTabBarViewControllers()
     }
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        tabBar.frame.size.height = 95
-        tabBar.frame.origin.y = view.frame.height - 95
+        
+        self.tabBar.frame.size.height = 95
     }
     
     // MARK: - Methods

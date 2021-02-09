@@ -58,7 +58,7 @@ class MTAuthorizationViewController: UIViewController {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.titleLabel?.adjustsFontSizeToFitWidth = true
         button.setButtonProperties(title: "Sign Up",
-                                   titleColor: UIColor(red: 68.0/255.0, green: 71.0/255.0, blue: 234.0/255.0, alpha: 1.0),
+                                   titleColor: UIColor(red: 163/255, green: 90/255, blue: 255/255, alpha: 1),
                                    font: UIFont.systemFont(ofSize: 15))
         button.addTarget(self, action: #selector(self.openRegisterVC), for: .touchUpInside)
         return button
@@ -101,16 +101,11 @@ class MTAuthorizationViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        self.setupBorderLines()
+        self.setupBorderLinesAddGradient()
     }
 
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-    
     // MARK: - Methods
-    private func setupBorderLines() {
+    private func setupBorderLinesAddGradient() {
         self.userEmailTextField.addBottomBorder(width: self.userEmailTextField.frame.width,
                                                 heidth: self.userEmailTextField.frame.height)
         self.userPasswordTextField.addBottomBorder(width: self.userPasswordTextField.frame.width,
