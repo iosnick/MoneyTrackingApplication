@@ -62,7 +62,7 @@ class MTHomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.backgroundColor = UIColor(red: 28/255, green: 26/255, blue: 38/255, alpha: 1)
+        self.view.backgroundColor = UIColor(red: 24/255, green: 26/255, blue: 31/255, alpha: 1)
         self.view.addSubviews([self.nameLabel, self.button, self.profileImageView])
         
         self.addConstraints()

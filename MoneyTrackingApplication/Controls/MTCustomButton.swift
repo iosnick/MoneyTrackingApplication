@@ -1,5 +1,5 @@
 //
-//  MTSignInUpButton.swift
+//  MTCustomButton.swift
 //  MoneyTrackingApplication
 //
 //  Created by Вадим Бенько on 03.02.2021.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MTSignInUpButton: UIButton {
+class MTCustomButton: UIButton {
     
     override init(frame: CGRect) {
         super.init(frame: frame)

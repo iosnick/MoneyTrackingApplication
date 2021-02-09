@@ -24,10 +24,17 @@ class MTCustomTextField: UITextField {
                                 textColor: UIColor = .white,
                                 placeHolderTextSize: CGFloat = 12,
                                 returnKeyType: UIReturnKeyType = .done,
-                                textFont: UIFont = .systemFont(ofSize: 15)) {
+                                textFont: UIFont = .systemFont(ofSize: 15),
+                                cornerRadius: CGFloat = 0,
+                                borderColor: CGColor = UIColor.white.cgColor,
+                                borderWidth: CGFloat = 1) {
         self.attributedPlaceholder = NSAttributedString(string: placeHolderText,
-                                                        attributes: [NSAttributedString.Key.foregroundColor: UIColor(white: 1, alpha: 0.75),
-                                                                     NSAttributedString.Key.font: UIFont.systemFont(ofSize: placeHolderTextSize)])
+                                                        attributes: [NSAttributedString.Key.foregroundColor: UIColor(white: 1, alpha: 0.7),
+                                                                     NSAttributedString.Key.font: UIFont(name: "Montserrat",
+                                                                                                         size: placeHolderTextSize) as Any])
+        self.layer.borderWidth = borderWidth
+        self.layer.borderColor = borderColor
+        self.layer.cornerRadius = cornerRadius
         self.font = textFont
         self.layer.backgroundColor = backgroundColor
         self.textColor = textColor
@@ -41,8 +48,8 @@ class MTCustomTextField: UITextField {
         leftImageView.image = UIImage(named: named)
         let leftView = UIView()
         leftView.addSubview(leftImageView)
-        leftView.frame = CGRect(x: 0, y: 0, width: 28.5, height: 25)
-        leftImageView.frame = CGRect(x: 6, y: 4, width: 16, height: 16)
+        leftView.frame = CGRect(x: 0, y: 0, width: 37, height: 26)
+        leftImageView.frame = CGRect(x: 10, y: 4, width: 16, height: 16)
         self.addSubview(leftView)
         self.leftView = leftView
         self.leftViewMode = UITextField.ViewMode.always
@@ -52,21 +59,12 @@ class MTCustomTextField: UITextField {
         let rightView = UIView()
         rightView.addSubview(self.textFieldEyeButton)
         rightView.frame = CGRect(x: 0, y: 0, width: 28.5, height: 25)
-        textFieldEyeButton.frame = CGRect(x: 6, y: 4, width: 16, height: 16)
+        textFieldEyeButton.frame = CGRect(x: 2, y: 4, width: 16, height: 16)
         self.addSubview(rightView)
         self.rightView = rightView
         self.rightViewMode = UITextField.ViewMode.always
     }
-    
-    // MARK: - Add bottom border
-    func addBottomBorder(width: CGFloat, heidth:CGFloat) {
-        let bottomLine = CALayer()
-        bottomLine.frame = CGRect.init(x: 0, y: heidth + 4, width: width, height: 1)
-        bottomLine.backgroundColor = UIColor(red: 68.0/255.0, green: 71.0/255.0, blue: 234.0/255.0, alpha: 1.0).cgColor
-        self.borderStyle = UITextField.BorderStyle.none
-        self.layer.addSublayer(bottomLine)
-    }
-    
+        
     // MARK: - Eye button for password
     private lazy var textFieldEyeButton: UIButton = {
         let button = UIButton()

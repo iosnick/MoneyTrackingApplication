@@ -32,19 +32,57 @@ class MTProfileViewController: UIViewController {
     private lazy var emailLabel: MTCustomLabel = {
         let label = MTCustomLabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.setLabelProperties(textColor: UIColor(red: 163/255, green: 90/255, blue: 255/255, alpha: 1),
+        label.setLabelProperties(textColor: UIColor(red: 136/255, green: 134/255, blue: 251/255, alpha: 1),
                                  text: String(Auth.auth().currentUser?.email ?? ""),
                                  font: UIFont.systemFont(ofSize: 14))
         return label
+    }()
+    private lazy var editProfileButton: MTCustomButton = {
+        let button = MTCustomButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setButtonProperties(title: "Edit profile", cornerRadius: 15,
+                                   titleColor: .white, backgroundColor: UIColor(red: 39/255, green: 42/255, blue: 51/255, alpha: 1),
+                                   font: UIFont.systemFont(ofSize: 17), adjustsFontSizeToFitWidth: true)
+        button.addTarget(self, action: #selector(self.pushProfileChangeVC), for: .touchUpInside)
+        return button
+    }()
+    private lazy var changePasswordButton: MTCustomButton = {
+        let button = MTCustomButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setButtonProperties(title: "Change password", cornerRadius: 15,
+                                   titleColor: .white, backgroundColor: UIColor(red: 39/255, green: 42/255, blue: 51/255, alpha: 1),
+                                   font: UIFont.systemFont(ofSize: 17), adjustsFontSizeToFitWidth: true)
+//        button.addTarget(self, action: #selector(self.pushProfileChangeVC), for: .touchUpInside)
+        return button
+    }()
+    private lazy var notificationButton: MTCustomButton = {
+        let button = MTCustomButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setButtonProperties(title: "Notification", cornerRadius: 15,
+                                   titleColor: .white, backgroundColor: UIColor(red: 39/255, green: 42/255, blue: 51/255, alpha: 1),
+                                   font: UIFont.systemFont(ofSize: 17), adjustsFontSizeToFitWidth: true)
+//        button.addTarget(self, action: #selector(self.pushProfileChangeVC), for: .touchUpInside)
+        return button
+    }()
+    private lazy var pincodeButton: MTCustomButton = {
+        let button = MTCustomButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setButtonProperties(title: "PIN code & Face ID", cornerRadius: 15,
+                                   titleColor: .white, backgroundColor: UIColor(red: 39/255, green: 42/255, blue: 51/255, alpha: 1),
+                                   font: UIFont.systemFont(ofSize: 17), adjustsFontSizeToFitWidth: true)
+//        button.addTarget(self, action: #selector(self.pushProfileChangeVC), for: .touchUpInside)
+        return button
     }()
     
     // MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.backgroundColor = UIColor(red: 28/255, green: 26/255, blue: 38/255, alpha: 1)
-        self.view.addSubviews([self.profileImageView, self.nameLabel, self.emailLabel])
-                
+        self.view.backgroundColor = UIColor(red: 24/255, green: 26/255, blue: 31/255, alpha: 1)
+        self.view.addSubviews([self.profileImageView, self.nameLabel, self.emailLabel,
+                               self.editProfileButton, self.changePasswordButton, self.notificationButton,
+                               self.pincodeButton])
+
         self.setupNavigationBarProperties()
         self.addConstraints()
     }
@@ -52,7 +90,6 @@ class MTProfileViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        self.view.frame.size.height = 729
     }
     
     // MARK: - Methods
@@ -64,12 +101,6 @@ class MTProfileViewController: UIViewController {
         self.navigationItem.title = "Profile"
         self.navigationController?.navigationBar.tintColor = .white
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
-        
-        let rightButton = UIBarButtonItem(image: UIImage(named: "editIcon"),
-                                          style: .plain,
-                                          target: self,
-                                          action: #selector(self.pushProfileChangeVC))
-        self.navigationItem.rightBarButtonItem = rightButton
     }
     
     // MARK: - Push vc
@@ -97,6 +128,26 @@ class MTProfileViewController: UIViewController {
         constraints.append(emailLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 244))
         constraints.append(emailLabel.widthAnchor.constraint(equalToConstant: 200))
         constraints.append(emailLabel.heightAnchor.constraint(equalToConstant: 17))
+        
+        constraints.append(editProfileButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 38))
+        constraints.append(editProfileButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 286))
+        constraints.append(editProfileButton.widthAnchor.constraint(equalToConstant: 300))
+        constraints.append(editProfileButton.heightAnchor.constraint(equalToConstant: 42))
+        
+        constraints.append(changePasswordButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 38))
+        constraints.append(changePasswordButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 343))
+        constraints.append(changePasswordButton.widthAnchor.constraint(equalToConstant: 300))
+        constraints.append(changePasswordButton.heightAnchor.constraint(equalToConstant: 42))
+        
+        constraints.append(notificationButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 38))
+        constraints.append(notificationButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 400))
+        constraints.append(notificationButton.widthAnchor.constraint(equalToConstant: 300))
+        constraints.append(notificationButton.heightAnchor.constraint(equalToConstant: 42))
+        
+        constraints.append(pincodeButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 38))
+        constraints.append(pincodeButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 457))
+        constraints.append(pincodeButton.widthAnchor.constraint(equalToConstant: 300))
+        constraints.append(pincodeButton.heightAnchor.constraint(equalToConstant: 42))
         
         // Activate (Applying)
         NSLayoutConstraint.activate(constraints)

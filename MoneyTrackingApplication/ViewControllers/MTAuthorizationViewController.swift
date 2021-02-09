@@ -23,7 +23,8 @@ class MTAuthorizationViewController: UIViewController {
     private lazy var userEmailTextField: MTCustomTextField = {
         let textField = MTCustomTextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
-        textField.setTextFieldProperties(placeHolderText: "Email")
+        textField.setTextFieldProperties(placeHolderText: "Email", cornerRadius: 15,
+                                         borderColor: UIColor(red: 68.0/255.0, green: 71.0/255.0, blue: 234.0/255.0, alpha: 1.0).cgColor)
         textField.addLeftIcon(named: "emailIcon")
         textField.textContentType = .name
         return textField
@@ -31,14 +32,15 @@ class MTAuthorizationViewController: UIViewController {
     private lazy var userPasswordTextField: MTCustomTextField = {
         let textField = MTCustomTextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
-        textField.setTextFieldProperties(isSecureTextEntry: true, placeHolderText: "Password")
+        textField.setTextFieldProperties(isSecureTextEntry: true, placeHolderText: "Password", cornerRadius: 15,
+                                         borderColor: UIColor(red: 68.0/255.0, green: 71.0/255.0, blue: 234.0/255.0, alpha: 1.0).cgColor)
         textField.addLeftIcon(named: "lockIcon")
         textField.addRigthIcon()
         textField.textContentType = .password
         return textField
     }()
-    private lazy var signInButton: MTSignInUpButton = {
-        let button = MTSignInUpButton()
+    private lazy var signInButton: MTCustomButton = {
+        let button = MTCustomButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setButtonProperties(title: "Sign In",
                                    cornerRadius: 25,
@@ -53,8 +55,8 @@ class MTAuthorizationViewController: UIViewController {
         label.setLabelProperties(textColor: .white, text: "Don’t have an account?", font: .systemFont(ofSize: 15))
         return label
     }()
-    private lazy var signUpButton: MTSignInUpButton = {
-        let button = MTSignInUpButton()
+    private lazy var signUpButton: MTCustomButton = {
+        let button = MTCustomButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.titleLabel?.adjustsFontSizeToFitWidth = true
         button.setButtonProperties(title: "Sign Up",
@@ -63,19 +65,12 @@ class MTAuthorizationViewController: UIViewController {
         button.addTarget(self, action: #selector(self.openRegisterVC), for: .touchUpInside)
         return button
     }()
-//    private lazy var backgroundImageView: UIImageView = {
-//        let imageView = UIImageView()
-//        imageView.alpha = 0.06
-//        imageView.translatesAutoresizingMaskIntoConstraints = false
-//        imageView.image = UIImage(named: "backgroundImage")?.withRenderingMode(.alwaysOriginal)
-//        return imageView
-//    }()
     
     // MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.backgroundColor = UIColor(red: 28/255, green: 26/255, blue: 38/255, alpha: 1)
+        self.view.backgroundColor = UIColor(red: 24/255, green: 26/255, blue: 31/255, alpha: 1)
         self.view.addSubviews([self.welcomeBackLabel, self.userEmailTextField, self.userPasswordTextField,
                                self.signUpButton, self.signInButton, self.signUpLabel])
         
@@ -101,15 +96,10 @@ class MTAuthorizationViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        self.setupBorderLinesAddGradient()
-    }
+        self.addGradient()    }
 
     // MARK: - Methods
-    private func setupBorderLinesAddGradient() {
-        self.userEmailTextField.addBottomBorder(width: self.userEmailTextField.frame.width,
-                                                heidth: self.userEmailTextField.frame.height)
-        self.userPasswordTextField.addBottomBorder(width: self.userPasswordTextField.frame.width,
-                                                   heidth: self.userPasswordTextField.frame.height)
+    private func addGradient() {
         self.signInButton.setupGradient(buttonCornerRadius: self.signInButton.layer.cornerRadius, bounds: self.signInButton.bounds)
     }
     
@@ -158,14 +148,14 @@ class MTAuthorizationViewController: UIViewController {
         constraints.append(welcomeBackLabel.heightAnchor.constraint(equalToConstant: 86))
         
         constraints.append(userEmailTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 38))
-        constraints.append(userEmailTextField.topAnchor.constraint(equalTo: view.topAnchor, constant: 371))
+        constraints.append(userEmailTextField.topAnchor.constraint(equalTo: view.topAnchor, constant: 361))
         constraints.append(userEmailTextField.widthAnchor.constraint(equalToConstant: 300))
-        constraints.append(userEmailTextField.heightAnchor.constraint(equalToConstant: 26))
+        constraints.append(userEmailTextField.heightAnchor.constraint(equalToConstant: 35))
         
         constraints.append(userPasswordTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 38))
-        constraints.append(userPasswordTextField.topAnchor.constraint(equalTo: view.topAnchor, constant: 418))
+        constraints.append(userPasswordTextField.topAnchor.constraint(equalTo: view.topAnchor, constant: 409))
         constraints.append(userPasswordTextField.widthAnchor.constraint(equalToConstant: 300))
-        constraints.append(userPasswordTextField.heightAnchor.constraint(equalToConstant: 26))
+        constraints.append(userPasswordTextField.heightAnchor.constraint(equalToConstant: 35))
         
         constraints.append(signInButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 38))
         constraints.append(signInButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -38))
@@ -181,10 +171,6 @@ class MTAuthorizationViewController: UIViewController {
         constraints.append(signUpButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 544))
         constraints.append(signUpButton.widthAnchor.constraint(equalToConstant: 53))
         constraints.append(signUpButton.heightAnchor.constraint(equalToConstant: 18))
-        
-//        constraints.append(backgroundImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: -170))
-//        constraints.append(backgroundImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 230))
-//        constraints.append(backgroundImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 0))
         
         // Activate (Applying)
         NSLayoutConstraint.activate(constraints)

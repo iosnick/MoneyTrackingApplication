@@ -38,8 +38,8 @@ class MTGreetingViewController: UIViewController {
                                  lines: 3)
         return label
     }()
-    private lazy var signUpButton: MTSignInUpButton = {
-        let button = MTSignInUpButton()
+    private lazy var signUpButton: MTCustomButton = {
+        let button = MTCustomButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setButtonProperties(title: "Sign Up",
                                    cornerRadius: 25,
@@ -54,8 +54,8 @@ class MTGreetingViewController: UIViewController {
         label.setLabelProperties(textColor: .white, text: "Already have an account?", font: .systemFont(ofSize: 15))
         return label
     }()
-    private lazy var signInButton: MTSignInUpButton = {
-        let button = MTSignInUpButton()
+    private lazy var signInButton: MTCustomButton = {
+        let button = MTCustomButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.titleLabel?.adjustsFontSizeToFitWidth = true
         button.setButtonProperties(title: "Sign In",
@@ -81,7 +81,7 @@ class MTGreetingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.backgroundColor = UIColor(red: 28/255, green: 26/255, blue: 38/255, alpha: 1)
+        self.view.backgroundColor = UIColor(red: 24/255, green: 26/255, blue: 31/255, alpha: 1)
         self.view.addSubviews([self.signInButton, self.signInLabel, self.fourthWelcomeLabel, self.thirdWelcomeLabel,
                                self.secondGreetingImageView, self.secondWelcomeLabel, self.welcomeLabel,
                                self.signUpButton, self.greetingImageView])

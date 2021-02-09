@@ -11,6 +11,7 @@ import FirebaseAuth
 class MTChangeProfileViewController: UIViewController {
     // MARK: - Variables
     private let male = ["Not defined", "Man", "Women"]
+    
     private let datePicker: UIDatePicker = {
         let datePicker = UIDatePicker()
         datePicker.datePickerMode = .date
@@ -47,70 +48,110 @@ class MTChangeProfileViewController: UIViewController {
         imageView.addSubviews([view, button])
         return imageView
     }()
-    private lazy var nameLabel: MTCustomLabel = {
+    private lazy var viewWithLabelName: UIView = {
+        let view = UIView()
         let label = MTCustomLabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = UIColor(red: 24/255, green: 26/255, blue: 31/255, alpha: 1)
         label.setLabelProperties(textColor: UIColor(white: 1, alpha: 1),
                                  text: "Your Name",
-                                 textAlignment: .left,
-                                 font: .boldSystemFont(ofSize: 18))
-        return label
+                                 textAlignment: .center,
+                                 font: .boldSystemFont(ofSize: 11))
+        label.frame = CGRect(x: 0, y: 0, width: 79, height: 16)
+        view.addSubview(label)
+        return view
     }()
     private lazy var nameTextField: MTCustomTextField = {
         let textField = MTCustomTextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
-        textField.setTextFieldProperties(placeHolderText: String(Auth.auth().currentUser?.displayName ?? ""))
+        textField.setTextFieldProperties(placeHolderText: String(Auth.auth().currentUser?.displayName ?? ""), cornerRadius: 15,
+                                         borderColor: UIColor(red: 68.0/255.0, green: 71.0/255.0, blue: 234.0/255.0, alpha: 1.0).cgColor)
         textField.textContentType = .name
+        let viewForText = UIView()
+        viewForText.frame = CGRect(x: 0, y: 0, width: 17, height: 42)
+        textField.addSubview(viewForText)
+        textField.leftView = viewForText
+        textField.leftViewMode = UITextField.ViewMode.always
         return textField
     }()
-    private lazy var emailLabel: MTCustomLabel = {
+    private lazy var viewWithLabelEmail: UIView = {
+        let view = UIView()
         let label = MTCustomLabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = UIColor(red: 24/255, green: 26/255, blue: 31/255, alpha: 1)
         label.setLabelProperties(textColor: UIColor(white: 1, alpha: 1),
                                  text: "Your Email",
-                                 textAlignment: .left,
-                                 font: .boldSystemFont(ofSize: 18))
-        return label
+                                 textAlignment: .center,
+                                 font: .boldSystemFont(ofSize: 11))
+        label.frame = CGRect(x: 0, y: 0, width: 79, height: 16)
+        view.addSubview(label)
+        return view
     }()
     private lazy var emailTextField: MTCustomTextField = {
         let textField = MTCustomTextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
-        textField.setTextFieldProperties(placeHolderText: String(Auth.auth().currentUser?.email ?? ""))
+        textField.setTextFieldProperties(placeHolderText: String(Auth.auth().currentUser?.email ?? ""), cornerRadius: 15,
+                                         borderColor: UIColor(red: 68.0/255.0, green: 71.0/255.0, blue: 234.0/255.0, alpha: 1.0).cgColor)
         textField.textContentType = .emailAddress
+        let viewForText = UIView()
+        viewForText.frame = CGRect(x: 0, y: 0, width: 17, height: 42)
+        textField.addSubview(viewForText)
+        textField.leftView = viewForText
+        textField.leftViewMode = UITextField.ViewMode.always
         return textField
     }()
-    private lazy var genderLabel: MTCustomLabel = {
+    private lazy var viewWithLabelGender: UIView = {
+        let view = UIView()
         let label = MTCustomLabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = UIColor(red: 24/255, green: 26/255, blue: 31/255, alpha: 1)
         label.setLabelProperties(textColor: UIColor(white: 1, alpha: 1),
                                  text: "Gender",
-                                 textAlignment: .left,
-                                 font: .boldSystemFont(ofSize: 18))
-        return label
+                                 textAlignment: .center,
+                                 font: .boldSystemFont(ofSize: 11))
+        label.frame = CGRect(x: 0, y: 0, width: 60, height: 16)
+        view.addSubview(label)
+        return view
     }()
     private lazy var genderTextField: MTCustomTextField = {
         let textField = MTCustomTextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
-        textField.setTextFieldProperties(placeHolderText: "Select male")
+        textField.setTextFieldProperties(placeHolderText: "Select male", cornerRadius: 15,
+                                         borderColor: UIColor(red: 68.0/255.0, green: 71.0/255.0, blue: 234.0/255.0, alpha: 1.0).cgColor)
+        let viewForText = UIView()
+        viewForText.frame = CGRect(x: 0, y: 0, width: 17, height: 42)
+        textField.addSubview(viewForText)
+        textField.leftView = viewForText
+        textField.leftViewMode = UITextField.ViewMode.always
         return textField
     }()
-    private lazy var dateOfBirthLabel: MTCustomLabel = {
+    private lazy var viewWithLabelBirthOfDate: UIView = {
+        let view = UIView()
         let label = MTCustomLabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = UIColor(red: 24/255, green: 26/255, blue: 31/255, alpha: 1)
         label.setLabelProperties(textColor: UIColor(white: 1, alpha: 1),
                                  text: "Date of Birth",
-                                 textAlignment: .left,
-                                 font: .boldSystemFont(ofSize: 18))
-        return label
+                                 textAlignment: .center,
+                                 font: .boldSystemFont(ofSize: 11))
+        label.frame = CGRect(x: 0, y: 0, width: 86, height: 16)
+        view.addSubview(label)
+        return view
     }()
     private lazy var dateOfBirthTextField: MTCustomTextField = {
         let textField = MTCustomTextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
-        textField.setTextFieldProperties(placeHolderText: "Select date of birth")
+        textField.setTextFieldProperties(placeHolderText: "Select date of birth", cornerRadius: 15,
+                                         borderColor: UIColor(red: 68.0/255.0, green: 71.0/255.0, blue: 234.0/255.0, alpha: 1.0).cgColor)
+        let viewForText = UIView()
+        viewForText.frame = CGRect(x: 0, y: 0, width: 17, height: 42)
+        textField.addSubview(viewForText)
+        textField.leftView = viewForText
+        textField.leftViewMode = UITextField.ViewMode.always
         return textField
     }()
-    private lazy var doneButton: MTSignInUpButton = {
-        let button = MTSignInUpButton()
+    private lazy var doneButton: MTCustomButton = {
+        let button = MTCustomButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setButtonProperties(title: "Done",
                                    cornerRadius: 25,
@@ -124,10 +165,10 @@ class MTChangeProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.backgroundColor = UIColor(red: 28/255, green: 26/255, blue: 38/255, alpha: 1)
-        self.view.addSubviews([self.profileImageView, self.nameLabel, self.nameTextField,
-                               self.emailLabel, self.emailTextField, self.genderLabel,
-                               self.genderTextField, self.dateOfBirthLabel, self.dateOfBirthTextField,
+        self.view.backgroundColor = UIColor(red: 24/255, green: 26/255, blue: 31/255, alpha: 1)
+        self.view.addSubviews([self.profileImageView, self.nameTextField, self.viewWithLabelName,
+                               self.emailTextField, self.viewWithLabelEmail, self.genderTextField,
+                               self.viewWithLabelGender, self.dateOfBirthTextField, self.viewWithLabelBirthOfDate,
                                self.doneButton])
         
         self.textFieldDelegate()
@@ -158,7 +199,7 @@ class MTChangeProfileViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        self.setupBorderLinesAddGradient()
+        self.addGradient()
     }
     
     
@@ -190,15 +231,7 @@ class MTChangeProfileViewController: UIViewController {
         self.genderTextField.delegate = self
     }
     
-    private func setupBorderLinesAddGradient() {
-        self.nameTextField.addBottomBorder(width: self.nameTextField.frame.width,
-                                                heidth: self.nameTextField.frame.height)
-        self.emailTextField.addBottomBorder(width: self.emailTextField.frame.width,
-                                                   heidth: self.emailTextField.frame.height)
-        self.genderTextField.addBottomBorder(width: self.genderTextField.frame.width,
-                                                   heidth: self.genderTextField.frame.height)
-        self.dateOfBirthTextField.addBottomBorder(width: self.dateOfBirthTextField.frame.width,
-                                                   heidth: self.dateOfBirthTextField.frame.height)
+    private func addGradient() {
         self.doneButton.setupGradient(buttonCornerRadius: self.doneButton.layer.cornerRadius, bounds: self.doneButton.bounds)
     }
     
@@ -238,45 +271,45 @@ class MTChangeProfileViewController: UIViewController {
         constraints.append(profileImageView.widthAnchor.constraint(equalToConstant: 100))
         constraints.append(profileImageView.heightAnchor.constraint(equalToConstant: 100))
         
-        constraints.append(nameLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 38))
-        constraints.append(nameLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 230))
-        constraints.append(nameLabel.widthAnchor.constraint(equalToConstant: 103))
-        constraints.append(nameLabel.heightAnchor.constraint(equalToConstant: 22))
-        
         constraints.append(nameTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 38))
-        constraints.append(nameTextField.topAnchor.constraint(equalTo: view.topAnchor, constant: 256))
+        constraints.append(nameTextField.topAnchor.constraint(equalTo: view.topAnchor, constant: 245))
         constraints.append(nameTextField.widthAnchor.constraint(equalToConstant: 300))
-        constraints.append(nameTextField.heightAnchor.constraint(equalToConstant: 26))
+        constraints.append(nameTextField.heightAnchor.constraint(equalToConstant: 42))
         
-        constraints.append(emailLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 38))
-        constraints.append(emailLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 323))
-        constraints.append(emailLabel.widthAnchor.constraint(equalToConstant: 100))
-        constraints.append(emailLabel.heightAnchor.constraint(equalToConstant: 22))
+        constraints.append(viewWithLabelName.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 240))
+        constraints.append(viewWithLabelName.topAnchor.constraint(equalTo: view.topAnchor, constant: 238))
+        constraints.append(viewWithLabelName.widthAnchor.constraint(equalToConstant: 79))
+        constraints.append(viewWithLabelName.heightAnchor.constraint(equalToConstant: 16))
         
         constraints.append(emailTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 38))
-        constraints.append(emailTextField.topAnchor.constraint(equalTo: view.topAnchor, constant: 349))
+        constraints.append(emailTextField.topAnchor.constraint(equalTo: view.topAnchor, constant: 322))
         constraints.append(emailTextField.widthAnchor.constraint(equalToConstant: 300))
-        constraints.append(emailTextField.heightAnchor.constraint(equalToConstant: 22))
+        constraints.append(emailTextField.heightAnchor.constraint(equalToConstant: 42))
         
-        constraints.append(genderLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 38))
-        constraints.append(genderLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 416))
-        constraints.append(genderLabel.widthAnchor.constraint(equalToConstant: 69))
-        constraints.append(genderLabel.heightAnchor.constraint(equalToConstant: 22))
+        constraints.append(viewWithLabelEmail.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 240))
+        constraints.append(viewWithLabelEmail.topAnchor.constraint(equalTo: view.topAnchor, constant: 315))
+        constraints.append(viewWithLabelEmail.widthAnchor.constraint(equalToConstant: 79))
+        constraints.append(viewWithLabelEmail.heightAnchor.constraint(equalToConstant: 16))
         
         constraints.append(genderTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 38))
-        constraints.append(genderTextField.topAnchor.constraint(equalTo: view.topAnchor, constant: 442))
+        constraints.append(genderTextField.topAnchor.constraint(equalTo: view.topAnchor, constant: 399))
         constraints.append(genderTextField.widthAnchor.constraint(equalToConstant: 300))
-        constraints.append(genderTextField.heightAnchor.constraint(equalToConstant: 22))
+        constraints.append(genderTextField.heightAnchor.constraint(equalToConstant: 42))
         
-        constraints.append(dateOfBirthLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 38))
-        constraints.append(dateOfBirthLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 509))
-        constraints.append(dateOfBirthLabel.widthAnchor.constraint(equalToConstant: 120))
-        constraints.append(dateOfBirthLabel.heightAnchor.constraint(equalToConstant: 22))
+        constraints.append(viewWithLabelGender.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 250))
+        constraints.append(viewWithLabelGender.topAnchor.constraint(equalTo: view.topAnchor, constant: 392))
+        constraints.append(viewWithLabelGender.widthAnchor.constraint(equalToConstant: 60))
+        constraints.append(viewWithLabelGender.heightAnchor.constraint(equalToConstant: 16))
         
         constraints.append(dateOfBirthTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 38))
-        constraints.append(dateOfBirthTextField.topAnchor.constraint(equalTo: view.topAnchor, constant: 535))
+        constraints.append(dateOfBirthTextField.topAnchor.constraint(equalTo: view.topAnchor, constant: 476))
         constraints.append(dateOfBirthTextField.widthAnchor.constraint(equalToConstant: 300))
-        constraints.append(dateOfBirthTextField.heightAnchor.constraint(equalToConstant: 22))
+        constraints.append(dateOfBirthTextField.heightAnchor.constraint(equalToConstant: 42))
+        
+        constraints.append(viewWithLabelBirthOfDate.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 237))
+        constraints.append(viewWithLabelBirthOfDate.topAnchor.constraint(equalTo: view.topAnchor, constant: 469))
+        constraints.append(viewWithLabelBirthOfDate.widthAnchor.constraint(equalToConstant: 86))
+        constraints.append(viewWithLabelBirthOfDate.heightAnchor.constraint(equalToConstant: 16))
         
         constraints.append(doneButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 80))
         constraints.append(doneButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -80))

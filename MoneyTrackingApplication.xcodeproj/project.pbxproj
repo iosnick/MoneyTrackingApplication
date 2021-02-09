@@ -11,7 +11,7 @@
 		7D15595225CDD0EF00EA2ECC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7D15595125CDD0EF00EA2ECC /* GoogleService-Info.plist */; };
 		7D15596E25CE950400EA2ECC /* UIViewController+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D15596D25CE950400EA2ECC /* UIViewController+Ex.swift */; };
 		7D4AD29D25CAC32F0032DF59 /* MTAuthorizationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4AD29C25CAC32F0032DF59 /* MTAuthorizationViewController.swift */; };
-		7D4AD2AA25CAD8BA0032DF59 /* MTSignInUpButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4AD2A925CAD8BA0032DF59 /* MTSignInUpButton.swift */; };
+		7D4AD2AA25CAD8BA0032DF59 /* MTCustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4AD2A925CAD8BA0032DF59 /* MTCustomButton.swift */; };
 		7D4AD2B425CB24510032DF59 /* MTCustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4AD2B325CB24510032DF59 /* MTCustomLabel.swift */; };
 		7D4AD2BA25CBF8BA0032DF59 /* UIView+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4AD2B925CBF8BA0032DF59 /* UIView+Ex.swift */; };
 		7D4AD2C025CC68730032DF59 /* MTRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4AD2BF25CC68730032DF59 /* MTRegisterViewController.swift */; };
@@ -38,7 +38,7 @@
 		7D15595125CDD0EF00EA2ECC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7D15596D25CE950400EA2ECC /* UIViewController+Ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ex.swift"; sourceTree = "<group>"; };
 		7D4AD29C25CAC32F0032DF59 /* MTAuthorizationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTAuthorizationViewController.swift; sourceTree = "<group>"; };
-		7D4AD2A925CAD8BA0032DF59 /* MTSignInUpButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTSignInUpButton.swift; sourceTree = "<group>"; };
+		7D4AD2A925CAD8BA0032DF59 /* MTCustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTCustomButton.swift; sourceTree = "<group>"; };
 		7D4AD2B325CB24510032DF59 /* MTCustomLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTCustomLabel.swift; sourceTree = "<group>"; };
 		7D4AD2B925CBF8BA0032DF59 /* UIView+Ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ex.swift"; sourceTree = "<group>"; };
 		7D4AD2BF25CC68730032DF59 /* MTRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTRegisterViewController.swift; sourceTree = "<group>"; };
@@ -98,7 +98,7 @@
 		7D4AD2A825CAD88B0032DF59 /* Controls */ = {
 			isa = PBXGroup;
 			children = (
-				7D4AD2A925CAD8BA0032DF59 /* MTSignInUpButton.swift */,
+				7D4AD2A925CAD8BA0032DF59 /* MTCustomButton.swift */,
 				7D4AD2C325CC6D8F0032DF59 /* MTCustomTextField.swift */,
 			);
 			path = Controls;
@@ -311,7 +311,7 @@
 				7DCE20E725D07592004C692B /* MTAddingViewController.swift in Sources */,
 				7DFFD07B25D2878900E75D63 /* MTChangeProfileViewController.swift in Sources */,
 				7DCE20EB25D08704004C692B /* UIButton+Ex.swift in Sources */,
-				7D4AD2AA25CAD8BA0032DF59 /* MTSignInUpButton.swift in Sources */,
+				7D4AD2AA25CAD8BA0032DF59 /* MTCustomButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

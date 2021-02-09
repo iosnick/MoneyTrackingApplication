@@ -18,7 +18,8 @@ class MTTabBarViewController: UITabBarController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        self.tabBar.frame.size.height = 95
+        self.tabBar.frame.size.height = 120
+        self.tabBar.frame.origin.y = view.frame.height - 120
     }
     
     // MARK: - Methods
@@ -30,7 +31,7 @@ class MTTabBarViewController: UITabBarController {
         let profileVC = UINavigationController(rootViewController: MTProfileViewController())
         
         self.setViewControllers([homeVC, timeVC, addingVC, bankVC, profileVC], animated: false)
-        self.tabBar.barTintColor = UIColor(red: 28/255, green: 26/255, blue: 38/255, alpha: 1)
+        self.tabBar.barTintColor = UIColor(red: 24/255, green: 26/255, blue: 31/255, alpha: 1)
         self.tabBar.clipsToBounds = true
         self.tabBar.unselectedItemTintColor = .white
         self.tabBar.tintColor = UIColor(red: 163/255, green: 90/255, blue: 255/255, alpha: 1)

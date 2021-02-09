@@ -23,7 +23,8 @@ class MTRegisterViewController: UIViewController {
     private lazy var userNameTextField: MTCustomTextField = {
         let textField = MTCustomTextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
-        textField.setTextFieldProperties(placeHolderText: "User name")
+        textField.setTextFieldProperties(placeHolderText: "User Name", cornerRadius: 15,
+                                         borderColor: UIColor(red: 68.0/255.0, green: 71.0/255.0, blue: 234.0/255.0, alpha: 1.0).cgColor)
         textField.addLeftIcon(named: "userIcon")
         textField.textContentType = .name
         return textField
@@ -31,7 +32,8 @@ class MTRegisterViewController: UIViewController {
     private lazy var userEmailTextField: MTCustomTextField = {
         let textField = MTCustomTextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
-        textField.setTextFieldProperties(placeHolderText: "Email")
+        textField.setTextFieldProperties(placeHolderText: "Email", cornerRadius: 15,
+                                         borderColor: UIColor(red: 68.0/255.0, green: 71.0/255.0, blue: 234.0/255.0, alpha: 1.0).cgColor)
         textField.addLeftIcon(named: "emailIcon")
         textField.textContentType = .emailAddress
         return textField
@@ -39,7 +41,8 @@ class MTRegisterViewController: UIViewController {
     private lazy var userPasswordTextField: MTCustomTextField = {
         let textField = MTCustomTextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
-        textField.setTextFieldProperties(isSecureTextEntry: true, placeHolderText: "Password")
+        textField.setTextFieldProperties(isSecureTextEntry: true, placeHolderText: "Password", cornerRadius: 15,
+                                         borderColor: UIColor(red: 68.0/255.0, green: 71.0/255.0, blue: 234.0/255.0, alpha: 1.0).cgColor)
         textField.addLeftIcon(named: "lockIcon")
         textField.addRigthIcon()
         textField.textContentType = .newPassword
@@ -48,14 +51,15 @@ class MTRegisterViewController: UIViewController {
     private lazy var userRepeatPasswordTextField: MTCustomTextField = {
         let textField = MTCustomTextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
-        textField.setTextFieldProperties(isSecureTextEntry: true, placeHolderText: "Repeat password")
+        textField.setTextFieldProperties(isSecureTextEntry: true, placeHolderText: "Repeat password", cornerRadius: 15,
+                                         borderColor: UIColor(red: 68.0/255.0, green: 71.0/255.0, blue: 234.0/255.0, alpha: 1.0).cgColor)
         textField.addLeftIcon(named: "lockIcon")
         textField.addRigthIcon()
         textField.textContentType = .newPassword
         return textField
     }()
-    private lazy var signUpButton: MTSignInUpButton = {
-        let button = MTSignInUpButton()
+    private lazy var signUpButton: MTCustomButton = {
+        let button = MTCustomButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setButtonProperties(title: "Sign Up",
                                    cornerRadius: 25,
@@ -70,8 +74,8 @@ class MTRegisterViewController: UIViewController {
         label.setLabelProperties(textColor: .white, text: "Already have an account?", font: .systemFont(ofSize: 15))
         return label
     }()
-    private lazy var signInButton: MTSignInUpButton = {
-        let button = MTSignInUpButton()
+    private lazy var signInButton: MTCustomButton = {
+        let button = MTCustomButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.titleLabel?.adjustsFontSizeToFitWidth = true
         button.setButtonProperties(title: "Sign In",
@@ -80,19 +84,12 @@ class MTRegisterViewController: UIViewController {
         button.addTarget(self, action: #selector(self.openAuthVC), for: .touchUpInside)
         return button
     }()
-//    private lazy var backgroundImageView: UIImageView = {
-//        let imageView = UIImageView()
-//        imageView.alpha = 0.06
-//        imageView.translatesAutoresizingMaskIntoConstraints = false
-//        imageView.image = UIImage(named: "backgroundImage")?.withRenderingMode(.alwaysOriginal)
-//        return imageView
-//    }()
     
     // MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.backgroundColor = UIColor(red: 28/255, green: 26/255, blue: 38/255, alpha: 1)
+        self.view.backgroundColor = UIColor(red: 24/255, green: 26/255, blue: 31/255, alpha: 1)
         self.view.addSubviews([self.createAccountLabel, self.userNameTextField, self.userEmailTextField,
                                self.userRepeatPasswordTextField, self.signUpButton, self.signInLabel,
                                self.signInButton, self.userPasswordTextField])
@@ -121,19 +118,11 @@ class MTRegisterViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        self.setupBorderLinesAddGradient()
+        self.addGradient()
     }
     
     // MARK: - Methods
-    private func setupBorderLinesAddGradient() {
-        self.userNameTextField.addBottomBorder(width: self.userNameTextField.frame.width,
-                                                   heidth: self.userNameTextField.frame.height)
-        self.userEmailTextField.addBottomBorder(width: self.userEmailTextField.frame.width,
-                                                heidth: self.userEmailTextField.frame.height)
-        self.userPasswordTextField.addBottomBorder(width: self.userPasswordTextField.frame.width,
-                                                   heidth: self.userPasswordTextField.frame.height)
-        self.userRepeatPasswordTextField.addBottomBorder(width: self.userRepeatPasswordTextField.frame.width,
-                                                   heidth: self.userRepeatPasswordTextField.frame.height)
+    private func addGradient() {
         self.signUpButton.setupGradient(buttonCornerRadius: self.signUpButton.layer.cornerRadius, bounds: self.signUpButton.bounds)
     }
     
@@ -188,43 +177,39 @@ class MTRegisterViewController: UIViewController {
         constraints.append(createAccountLabel.heightAnchor.constraint(equalToConstant: 86))
         
         constraints.append(userNameTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 38))
-        constraints.append(userNameTextField.topAnchor.constraint(equalTo: view.topAnchor, constant: 276))
+        constraints.append(userNameTextField.topAnchor.constraint(equalTo: view.topAnchor, constant: 314))
         constraints.append(userNameTextField.widthAnchor.constraint(equalToConstant: 300))
-        constraints.append(userNameTextField.heightAnchor.constraint(equalToConstant: 26))
+        constraints.append(userNameTextField.heightAnchor.constraint(equalToConstant: 35))
         
         constraints.append(userEmailTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 38))
-        constraints.append(userEmailTextField.topAnchor.constraint(equalTo: view.topAnchor, constant: 323))
+        constraints.append(userEmailTextField.topAnchor.constraint(equalTo: view.topAnchor, constant: 361))
         constraints.append(userEmailTextField.widthAnchor.constraint(equalToConstant: 300))
-        constraints.append(userEmailTextField.heightAnchor.constraint(equalToConstant: 26))
+        constraints.append(userEmailTextField.heightAnchor.constraint(equalToConstant: 35))
         
         constraints.append(userPasswordTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 38))
-        constraints.append(userPasswordTextField.topAnchor.constraint(equalTo: view.topAnchor, constant: 369))
+        constraints.append(userPasswordTextField.topAnchor.constraint(equalTo: view.topAnchor, constant: 408))
         constraints.append(userPasswordTextField.widthAnchor.constraint(equalToConstant: 300))
-        constraints.append(userPasswordTextField.heightAnchor.constraint(equalToConstant: 26))
+        constraints.append(userPasswordTextField.heightAnchor.constraint(equalToConstant: 35))
         
         constraints.append(userRepeatPasswordTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 38))
-        constraints.append(userRepeatPasswordTextField.topAnchor.constraint(equalTo: view.topAnchor, constant: 416))
+        constraints.append(userRepeatPasswordTextField.topAnchor.constraint(equalTo: view.topAnchor, constant: 455))
         constraints.append(userRepeatPasswordTextField.widthAnchor.constraint(equalToConstant: 300))
-        constraints.append(userRepeatPasswordTextField.heightAnchor.constraint(equalToConstant: 26))
+        constraints.append(userRepeatPasswordTextField.heightAnchor.constraint(equalToConstant: 35))
         
         constraints.append(signUpButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 38))
         constraints.append(signUpButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -38))
-        constraints.append(signUpButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 479))
+        constraints.append(signUpButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 527))
         constraints.append(signUpButton.heightAnchor.constraint(equalToConstant: 50))
         
         constraints.append(signInLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 61))
-        constraints.append(signInLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 544))
+        constraints.append(signInLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 592))
         constraints.append(signInLabel.widthAnchor.constraint(equalToConstant: 196))
         constraints.append(signInLabel.heightAnchor.constraint(equalToConstant: 18))
         
         constraints.append(signInButton.leadingAnchor.constraint(equalTo: signInLabel.trailingAnchor, constant: 0))
-        constraints.append(signInButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 544))
+        constraints.append(signInButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 592))
         constraints.append(signInButton.widthAnchor.constraint(equalToConstant: 53))
         constraints.append(signInButton.heightAnchor.constraint(equalToConstant: 18))
-        
-//        constraints.append(backgroundImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: -170))
-//        constraints.append(backgroundImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 230))
-//        constraints.append(backgroundImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 0))
         
         // Activate (Applying)
         NSLayoutConstraint.activate(constraints)
