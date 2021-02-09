@@ -26,16 +26,14 @@ class MTRegisterViewController: UIViewController {
         textField.setTextFieldProperties(placeHolderText: "User name")
         textField.addLeftIcon(named: "userIcon")
         textField.textContentType = .name
-        textField.addBottomBorder(widthSelfTextField: 300, heidthSelfTextField: 26)
         return textField
     }()
     private lazy var userEmailTextField: MTCustomTextField = {
         let textField = MTCustomTextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.setTextFieldProperties(placeHolderText: "Email")
-        textField.addLeftIcon(named: "userIcon")
+        textField.addLeftIcon(named: "emailIcon")
         textField.textContentType = .emailAddress
-        textField.addBottomBorder(widthSelfTextField: 300, heidthSelfTextField: 26)
         return textField
     }()
     private lazy var userPasswordTextField: MTCustomTextField = {
@@ -45,7 +43,6 @@ class MTRegisterViewController: UIViewController {
         textField.addLeftIcon(named: "lockIcon")
         textField.addRigthIcon()
         textField.textContentType = .newPassword
-        textField.addBottomBorder(widthSelfTextField: 300, heidthSelfTextField: 26)
         return textField
     }()
     private lazy var userRepeatPasswordTextField: MTCustomTextField = {
@@ -55,7 +52,6 @@ class MTRegisterViewController: UIViewController {
         textField.addLeftIcon(named: "lockIcon")
         textField.addRigthIcon()
         textField.textContentType = .newPassword
-        textField.addBottomBorder(widthSelfTextField: 300, heidthSelfTextField: 26)
         return textField
     }()
     private lazy var signUpButton: MTSignInUpButton = {
@@ -84,22 +80,22 @@ class MTRegisterViewController: UIViewController {
         button.addTarget(self, action: #selector(self.openAuthVC), for: .touchUpInside)
         return button
     }()
-    private lazy var backgroundImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.alpha = 0.06
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.image = UIImage(named: "backgroundImage")?.withRenderingMode(.alwaysOriginal)
-        return imageView
-    }()
+//    private lazy var backgroundImageView: UIImageView = {
+//        let imageView = UIImageView()
+//        imageView.alpha = 0.06
+//        imageView.translatesAutoresizingMaskIntoConstraints = false
+//        imageView.image = UIImage(named: "backgroundImage")?.withRenderingMode(.alwaysOriginal)
+//        return imageView
+//    }()
     
     // MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.view.backgroundColor = UIColor(red: 28/255, green: 26/255, blue: 38/255, alpha: 1)
-        self.view.addSubviews([self.backgroundImageView ,self.createAccountLabel, self.userNameTextField,
+        self.view.addSubviews([self.createAccountLabel, self.userNameTextField, self.userEmailTextField,
                                self.userRepeatPasswordTextField, self.signUpButton, self.signInLabel,
-                               self.signInButton, self.userPasswordTextField, self.userEmailTextField])
+                               self.signInButton, self.userPasswordTextField])
         
         self.userNameTextField.delegate = self
         self.userEmailTextField.delegate = self
@@ -125,11 +121,24 @@ class MTRegisterViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        self.signUpButton.setupGradient(buttonCornerRadius: self.signUpButton.layer.cornerRadius, bounds: self.signUpButton.bounds)
+        self.setupBorderLines()
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    // MARK: - Methods
+    private func setupBorderLines() {
+        self.userNameTextField.addBottomBorder(width: self.userNameTextField.frame.width,
+                                                   heidth: self.userNameTextField.frame.height)
+        self.userEmailTextField.addBottomBorder(width: self.userEmailTextField.frame.width,
+                                                heidth: self.userEmailTextField.frame.height)
+        self.userPasswordTextField.addBottomBorder(width: self.userPasswordTextField.frame.width,
+                                                   heidth: self.userPasswordTextField.frame.height)
+        self.userRepeatPasswordTextField.addBottomBorder(width: self.userRepeatPasswordTextField.frame.width,
+                                                   heidth: self.userRepeatPasswordTextField.frame.height)
+        self.signUpButton.setupGradient(buttonCornerRadius: self.signUpButton.layer.cornerRadius, bounds: self.signUpButton.bounds)
     }
     
     // MARK: - Alerts
@@ -178,17 +187,17 @@ class MTRegisterViewController: UIViewController {
         
         // Add
         constraints.append(createAccountLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 47))
-        constraints.append(createAccountLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 199))
+        constraints.append(createAccountLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 154))
         constraints.append(createAccountLabel.widthAnchor.constraint(equalToConstant: 150))
         constraints.append(createAccountLabel.heightAnchor.constraint(equalToConstant: 86))
         
         constraints.append(userNameTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 38))
-        constraints.append(userNameTextField.topAnchor.constraint(equalTo: view.topAnchor, constant: 322))
+        constraints.append(userNameTextField.topAnchor.constraint(equalTo: view.topAnchor, constant: 276))
         constraints.append(userNameTextField.widthAnchor.constraint(equalToConstant: 300))
         constraints.append(userNameTextField.heightAnchor.constraint(equalToConstant: 26))
         
         constraints.append(userEmailTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 38))
-        constraints.append(userEmailTextField.topAnchor.constraint(equalTo: view.topAnchor, constant: 288))
+        constraints.append(userEmailTextField.topAnchor.constraint(equalTo: view.topAnchor, constant: 323))
         constraints.append(userEmailTextField.widthAnchor.constraint(equalToConstant: 300))
         constraints.append(userEmailTextField.heightAnchor.constraint(equalToConstant: 26))
         
@@ -217,9 +226,9 @@ class MTRegisterViewController: UIViewController {
         constraints.append(signInButton.widthAnchor.constraint(equalToConstant: 53))
         constraints.append(signInButton.heightAnchor.constraint(equalToConstant: 18))
         
-        constraints.append(backgroundImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: -170))
-        constraints.append(backgroundImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 230))
-        constraints.append(backgroundImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 0))
+//        constraints.append(backgroundImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: -170))
+//        constraints.append(backgroundImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 230))
+//        constraints.append(backgroundImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 0))
         
         // Activate (Applying)
         NSLayoutConstraint.activate(constraints)

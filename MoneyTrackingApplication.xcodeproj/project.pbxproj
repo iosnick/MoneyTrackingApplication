@@ -20,12 +20,13 @@
 		7DC1AF2F25C9D4CF00E099A0 /* MTGreetingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DC1AF2E25C9D4CF00E099A0 /* MTGreetingViewController.swift */; };
 		7DC1AF3425C9D4CF00E099A0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7DC1AF3325C9D4CF00E099A0 /* Assets.xcassets */; };
 		7DC1AF3725C9D4CF00E099A0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DC1AF3525C9D4CF00E099A0 /* LaunchScreen.storyboard */; };
-		7DCE20D725D070CD004C692B /* MTSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DCE20D625D070CD004C692B /* MTSettingsViewController.swift */; };
+		7DCE20D725D070CD004C692B /* MTProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DCE20D625D070CD004C692B /* MTProfileViewController.swift */; };
 		7DCE20DA25D07166004C692B /* MTTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DCE20D925D07166004C692B /* MTTimeViewController.swift */; };
 		7DCE20DE25D071A1004C692B /* MTBankViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DCE20DD25D071A1004C692B /* MTBankViewController.swift */; };
 		7DCE20E225D073A4004C692B /* MTTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DCE20E125D073A4004C692B /* MTTabBarViewController.swift */; };
 		7DCE20E725D07592004C692B /* MTAddingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DCE20E625D07592004C692B /* MTAddingViewController.swift */; };
 		7DCE20EB25D08704004C692B /* UIButton+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DCE20EA25D08704004C692B /* UIButton+Ex.swift */; };
+		7DFFD07B25D2878900E75D63 /* MTChangeProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DFFD07A25D2878900E75D63 /* MTChangeProfileViewController.swift */; };
 		85D30C2A684F919FD66E55AA /* Pods_MoneyTrackingApplication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 056563BD68589CA76F2BA9AB /* Pods_MoneyTrackingApplication.framework */; };
 /* End PBXBuildFile section */
 
@@ -48,12 +49,13 @@
 		7DC1AF3325C9D4CF00E099A0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7DC1AF3625C9D4CF00E099A0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7DC1AF3825C9D4CF00E099A0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7DCE20D625D070CD004C692B /* MTSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTSettingsViewController.swift; sourceTree = "<group>"; };
+		7DCE20D625D070CD004C692B /* MTProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTProfileViewController.swift; sourceTree = "<group>"; };
 		7DCE20D925D07166004C692B /* MTTimeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTTimeViewController.swift; sourceTree = "<group>"; };
 		7DCE20DD25D071A1004C692B /* MTBankViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTBankViewController.swift; sourceTree = "<group>"; };
 		7DCE20E125D073A4004C692B /* MTTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTTabBarViewController.swift; sourceTree = "<group>"; };
 		7DCE20E625D07592004C692B /* MTAddingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTAddingViewController.swift; sourceTree = "<group>"; };
 		7DCE20EA25D08704004C692B /* UIButton+Ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Ex.swift"; sourceTree = "<group>"; };
+		7DFFD07A25D2878900E75D63 /* MTChangeProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTChangeProfileViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,7 +158,8 @@
 				7DCE20D925D07166004C692B /* MTTimeViewController.swift */,
 				7DCE20E625D07592004C692B /* MTAddingViewController.swift */,
 				7DCE20DD25D071A1004C692B /* MTBankViewController.swift */,
-				7DCE20D625D070CD004C692B /* MTSettingsViewController.swift */,
+				7DCE20D625D070CD004C692B /* MTProfileViewController.swift */,
+				7DFFD07A25D2878900E75D63 /* MTChangeProfileViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -292,7 +295,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7DCE20D725D070CD004C692B /* MTSettingsViewController.swift in Sources */,
+				7DCE20D725D070CD004C692B /* MTProfileViewController.swift in Sources */,
 				7DCE20DE25D071A1004C692B /* MTBankViewController.swift in Sources */,
 				7DC1AF2F25C9D4CF00E099A0 /* MTGreetingViewController.swift in Sources */,
 				7DC1AF2B25C9D4CF00E099A0 /* AppDelegate.swift in Sources */,
@@ -306,6 +309,7 @@
 				7D4AD29D25CAC32F0032DF59 /* MTAuthorizationViewController.swift in Sources */,
 				7D4AD2C025CC68730032DF59 /* MTRegisterViewController.swift in Sources */,
 				7DCE20E725D07592004C692B /* MTAddingViewController.swift in Sources */,
+				7DFFD07B25D2878900E75D63 /* MTChangeProfileViewController.swift in Sources */,
 				7DCE20EB25D08704004C692B /* UIButton+Ex.swift in Sources */,
 				7D4AD2AA25CAD8BA0032DF59 /* MTSignInUpButton.swift in Sources */,
 			);

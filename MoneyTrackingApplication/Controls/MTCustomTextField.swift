@@ -59,9 +59,9 @@ class MTCustomTextField: UITextField {
     }
     
     // MARK: - Add bottom border
-    func addBottomBorder(widthSelfTextField: CGFloat, heidthSelfTextField:CGFloat) {
+    func addBottomBorder(width: CGFloat, heidth:CGFloat) {
         let bottomLine = CALayer()
-        bottomLine.frame = CGRect.init(x: 0, y: heidthSelfTextField + 4, width: widthSelfTextField, height: 1)
+        bottomLine.frame = CGRect.init(x: 0, y: heidth + 4, width: width, height: 1)
         bottomLine.backgroundColor = UIColor(red: 68.0/255.0, green: 71.0/255.0, blue: 234.0/255.0, alpha: 1.0).cgColor
         self.borderStyle = UITextField.BorderStyle.none
         self.layer.addSublayer(bottomLine)

@@ -26,22 +26,19 @@ class MTTabBarViewController: UITabBarController {
         let timeVC = MTTimeViewController()
         let addingVC = MTAddingViewController()
         let bankVC = MTBankViewController()
-        let settingsVC = MTSettingsViewController()
+        let profileVC = UINavigationController(rootViewController: MTProfileViewController())
         
-        self.setViewControllers([homeVC, timeVC, addingVC, bankVC, settingsVC], animated: false)
+        self.setViewControllers([homeVC, timeVC, addingVC, bankVC, profileVC], animated: false)
         self.tabBar.barTintColor = UIColor(red: 28/255, green: 26/255, blue: 38/255, alpha: 1)
         self.tabBar.clipsToBounds = true
         self.tabBar.unselectedItemTintColor = .white
-        self.tabBar.tintColor = .yellow
+        self.tabBar.tintColor = UIColor(red: 163/255, green: 90/255, blue: 255/255, alpha: 1)
         self.tabBar.isTranslucent = false
         
         homeVC.tabBarItem.image = UIImage(named: "homeIcon")
         timeVC.tabBarItem.image = UIImage(named: "timeIcon")
         addingVC.tabBarItem.image = UIImage(named: "addingIcon")
         bankVC.tabBarItem.image = UIImage(named: "bankIcon")
-        settingsVC.tabBarItem.image = UIImage(named: "settingsIcon")
-    }
-    private func setupProperties() {
-        
+        profileVC.tabBarItem.image = UIImage(named: "settingsIcon")
     }
 }

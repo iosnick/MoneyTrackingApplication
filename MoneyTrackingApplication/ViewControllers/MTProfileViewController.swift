@@ -1,14 +1,15 @@
 //
-//  MTSettingsViewController.swift
+//  MTProfileViewController.swift
 //  MoneyTrackingApplication
 //
 //  Created by Вадим Бенько on 07.02.2021.
 //
 
 import UIKit
+import FirebaseAuth
+import FirebaseStorage
 
-
-class MTSettingsViewController: UIViewController {
+class MTProfileViewController: UIViewController {
     // MARK: - Variables
     private var imagePicker: UIImagePickerController = {
         let imagePicker = UIImagePickerController()
@@ -25,6 +26,7 @@ class MTSettingsViewController: UIViewController {
         imageView.image = UIImage(named: "defaultUserImage")
         imageView.layer.cornerRadius = 50
         imageView.clipsToBounds = true
+        imageView.contentMode = .scaleAspectFill
         return imageView
     }()
     private lazy var tapToChangeButton: UIButton = {
@@ -50,12 +52,40 @@ class MTSettingsViewController: UIViewController {
         
         self.imagePicker.delegate = self
         
+        self.setupNavigationBarProperties()
         self.addConstraints()
     }
     
     // MARK: - Methods
     @objc private func openImagePicker() {
         self.present(self.imagePicker, animated: true, completion: nil)
+    }
+    
+    private func uploadProfileImage(_ image: UIImage, completion: @escaping ((_ url: String) -> ())) {
+//        guard let uid = Auth.auth().currentUser?.uid else { return }
+//        let storageRef = Storage.storage().reference().child("user/\(uid)")
+    }
+    
+    private func setupNavigationBarProperties() {
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.isTranslucent = true
+        self.navigationController?.navigationBar.clipsToBounds = true
+        self.navigationItem.title = "Profile"
+        self.navigationController?.navigationBar.tintColor = .white
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        
+        let rightButton = UIBarButtonItem(image: UIImage(named: "editIcon"),
+                                          style: .plain,
+                                          target: self,
+                                          action: #selector(self.pushProfileChangeVC))
+        self.navigationItem.rightBarButtonItem = rightButton
+    }
+    
+    // MARK: - Push vc
+    @objc private func pushProfileChangeVC() {
+        let vc = MTChangeProfileViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     // MARK: - Add constraints
@@ -78,7 +108,7 @@ class MTSettingsViewController: UIViewController {
     }
 }
 
-extension MTSettingsViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+extension MTProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true, completion: nil)
     }

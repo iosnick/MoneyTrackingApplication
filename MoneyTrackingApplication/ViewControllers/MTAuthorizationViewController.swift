@@ -23,10 +23,9 @@ class MTAuthorizationViewController: UIViewController {
     private lazy var userEmailTextField: MTCustomTextField = {
         let textField = MTCustomTextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
-        textField.setTextFieldProperties(placeHolderText: "User name")
-        textField.addLeftIcon(named: "userIcon")
+        textField.setTextFieldProperties(placeHolderText: "Email")
+        textField.addLeftIcon(named: "emailIcon")
         textField.textContentType = .name
-        textField.addBottomBorder(widthSelfTextField: 300, heidthSelfTextField: 26)
         return textField
     }()
     private lazy var userPasswordTextField: MTCustomTextField = {
@@ -36,7 +35,6 @@ class MTAuthorizationViewController: UIViewController {
         textField.addLeftIcon(named: "lockIcon")
         textField.addRigthIcon()
         textField.textContentType = .password
-        textField.addBottomBorder(widthSelfTextField: 300, heidthSelfTextField: 26)
         return textField
     }()
     private lazy var signInButton: MTSignInUpButton = {
@@ -65,13 +63,13 @@ class MTAuthorizationViewController: UIViewController {
         button.addTarget(self, action: #selector(self.openRegisterVC), for: .touchUpInside)
         return button
     }()
-    private lazy var backgroundImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.alpha = 0.06
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.image = UIImage(named: "backgroundImage")?.withRenderingMode(.alwaysOriginal)
-        return imageView
-    }()
+//    private lazy var backgroundImageView: UIImageView = {
+//        let imageView = UIImageView()
+//        imageView.alpha = 0.06
+//        imageView.translatesAutoresizingMaskIntoConstraints = false
+//        imageView.image = UIImage(named: "backgroundImage")?.withRenderingMode(.alwaysOriginal)
+//        return imageView
+//    }()
     
     // MARK: - Life cycle
     override func viewDidLoad() {
@@ -79,7 +77,7 @@ class MTAuthorizationViewController: UIViewController {
         
         self.view.backgroundColor = UIColor(red: 28/255, green: 26/255, blue: 38/255, alpha: 1)
         self.view.addSubviews([self.welcomeBackLabel, self.userEmailTextField, self.userPasswordTextField,
-                               self.signUpButton, self.signInButton, self.signUpLabel, self.backgroundImageView])
+                               self.signUpButton, self.signInButton, self.signUpLabel])
         
         self.userEmailTextField.delegate = self
         self.userPasswordTextField.delegate = self
@@ -103,12 +101,21 @@ class MTAuthorizationViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        self.signInButton.setupGradient(buttonCornerRadius: self.signInButton.layer.cornerRadius, bounds: self.signInButton.bounds)
+        self.setupBorderLines()
     }
 
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    // MARK: - Methods
+    private func setupBorderLines() {
+        self.userEmailTextField.addBottomBorder(width: self.userEmailTextField.frame.width,
+                                                heidth: self.userEmailTextField.frame.height)
+        self.userPasswordTextField.addBottomBorder(width: self.userPasswordTextField.frame.width,
+                                                   heidth: self.userPasswordTextField.frame.height)
+        self.signInButton.setupGradient(buttonCornerRadius: self.signInButton.layer.cornerRadius, bounds: self.signInButton.bounds)
     }
     
     // MARK: - Alerts
@@ -180,15 +187,15 @@ class MTAuthorizationViewController: UIViewController {
         constraints.append(signUpButton.widthAnchor.constraint(equalToConstant: 53))
         constraints.append(signUpButton.heightAnchor.constraint(equalToConstant: 18))
         
-        constraints.append(backgroundImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: -170))
-        constraints.append(backgroundImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 230))
-        constraints.append(backgroundImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 0))
+//        constraints.append(backgroundImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: -170))
+//        constraints.append(backgroundImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 230))
+//        constraints.append(backgroundImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 0))
         
         // Activate (Applying)
         NSLayoutConstraint.activate(constraints)
     }
     
-    // MARK: - Methods
+    // MARK: - Keyboard methods
     @objc private func keyboardWillShow(_ notification: Notification) { }
     
     @objc private func keyboardWillHide() { }
