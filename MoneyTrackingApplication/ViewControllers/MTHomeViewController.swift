@@ -35,8 +35,17 @@ class MTHomeViewController: UIViewController {
         label.setLabelProperties(textColor: .white,
                                  text: "Welcome",
                                  textAlignment: .left,
-                                 font: UIFont.systemFont(ofSize: 31))
+                                 font: UIFont.boldSystemFont(ofSize: 31))
         return label
+    }()
+    private lazy var profileImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.image = UIImage(named: "defaultUserImage")
+        imageView.layer.cornerRadius = 28
+        imageView.clipsToBounds = true
+        imageView.contentMode = .scaleAspectFill
+        return imageView
     }()
     
     // MARK: - Life cycle
@@ -54,7 +63,7 @@ class MTHomeViewController: UIViewController {
         super.viewDidLoad()
         
         self.view.backgroundColor = UIColor(red: 28/255, green: 26/255, blue: 38/255, alpha: 1)
-        self.view.addSubviews([self.nameLabel, self.button])
+        self.view.addSubviews([self.nameLabel, self.button, self.profileImageView])
         
         self.addConstraints()
     }
@@ -62,7 +71,7 @@ class MTHomeViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        guard let userName = Auth.auth().currentUser?.displayName?.description else { return }
+        guard let userName = Auth.auth().currentUser?.displayName else { return }
         self.nameLabel.text = "Hello, \(userName)"
     }
     
@@ -82,6 +91,10 @@ class MTHomeViewController: UIViewController {
         constraints.append(button.widthAnchor.constraint(equalToConstant: 174))
         constraints.append(button.heightAnchor.constraint(equalToConstant: 38))
         
+        constraints.append(profileImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 72))
+        constraints.append(profileImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 295))
+        constraints.append(profileImageView.widthAnchor.constraint(equalToConstant: 56))
+        constraints.append(profileImageView.heightAnchor.constraint(equalToConstant: 56))
         
         // Activate (Applying)
         NSLayoutConstraint.activate(constraints)

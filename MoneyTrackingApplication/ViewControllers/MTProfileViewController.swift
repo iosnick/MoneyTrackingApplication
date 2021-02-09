@@ -21,13 +21,29 @@ class MTProfileViewController: UIViewController {
         imageView.contentMode = .scaleAspectFill
         return imageView
     }()
+    private lazy var nameLabel: MTCustomLabel = {
+        let label = MTCustomLabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.setLabelProperties(textColor: .white,
+                                 text: String(Auth.auth().currentUser?.displayName ?? ""),
+                                 font: UIFont.boldSystemFont(ofSize: 32))
+        return label
+    }()
+    private lazy var emailLabel: MTCustomLabel = {
+        let label = MTCustomLabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.setLabelProperties(textColor: UIColor(red: 163/255, green: 90/255, blue: 255/255, alpha: 1),
+                                 text: String(Auth.auth().currentUser?.email ?? ""),
+                                 font: UIFont.systemFont(ofSize: 14))
+        return label
+    }()
     
     // MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.view.backgroundColor = UIColor(red: 28/255, green: 26/255, blue: 38/255, alpha: 1)
-        self.view.addSubviews([self.profileImageView])
+        self.view.addSubviews([self.profileImageView, self.nameLabel, self.emailLabel])
                 
         self.setupNavigationBarProperties()
         self.addConstraints()
@@ -71,6 +87,16 @@ class MTProfileViewController: UIViewController {
         constraints.append(profileImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 138))
         constraints.append(profileImageView.widthAnchor.constraint(equalToConstant: 100))
         constraints.append(profileImageView.heightAnchor.constraint(equalToConstant: 100))
+        
+        constraints.append(nameLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 87.5))
+        constraints.append(nameLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 205))
+        constraints.append(nameLabel.widthAnchor.constraint(equalToConstant: 200))
+        constraints.append(nameLabel.heightAnchor.constraint(equalToConstant: 39))
+        
+        constraints.append(emailLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 87.5))
+        constraints.append(emailLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 244))
+        constraints.append(emailLabel.widthAnchor.constraint(equalToConstant: 200))
+        constraints.append(emailLabel.heightAnchor.constraint(equalToConstant: 17))
         
         // Activate (Applying)
         NSLayoutConstraint.activate(constraints)
