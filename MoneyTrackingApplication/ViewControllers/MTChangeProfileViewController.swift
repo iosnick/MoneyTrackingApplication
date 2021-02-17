@@ -6,12 +6,13 @@
 //
 
 import UIKit
+import FirebaseDatabase
+import FirebaseStorage
 import FirebaseAuth
 
 class MTChangeProfileViewController: UIViewController {
     // MARK: - Variables
     private let male = ["Not defined", "Man", "Women"]
-    
     private let datePicker: UIDatePicker = {
         let datePicker = UIDatePicker()
         datePicker.datePickerMode = .date
@@ -157,7 +158,7 @@ class MTChangeProfileViewController: UIViewController {
                                    cornerRadius: 25,
                                    titleColor: .white,
                                    backgroundColor: UIColor(red: 68.0/255.0, green: 71.0/255.0, blue: 234.0/255.0, alpha: 1.0))
-//        button.addTarget(self, action: #selector(self.), for: .touchUpInside)
+        button.addTarget(self, action: #selector(self.doneWasPressed), for: .touchUpInside)
         return button
     }()
     
@@ -219,10 +220,34 @@ class MTChangeProfileViewController: UIViewController {
         self.genderTextField.inputView = pickerView
     }
     
-    private func uploadProfileImage(_ image: UIImage, completion: @escaping ((_ url: String) -> ())) {
-//        guard let uid = Auth.auth().currentUser?.uid else { return }
-//        let storageRef = Storage.storage().reference().child("user/\(uid)")
+    private func uploadProfileImage(_ image: UIImage, completion: ((_ url: URL) -> ())?) {
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        let storageRef = Storage.storage().reference().child("user_\(uid)/file.png")
+        
+        guard let imageData = image.pngData() else { return }
+        storageRef.putData(imageData, metadata: nil) { _, error in
+            guard error == nil else { return }
+            storageRef.downloadURL(completion: { url, error in
+//                guard let url = url, error == nil else { return }
+//                let urlString = url.absoluteString
+            })
+            
+        }
     }
+    
+//    private func saveProfile(username: String, profileImageURL: URL, completion: @escaping ((_ success: Bool) -> ())) {
+//        guard let uid = Auth.auth().currentUser?.uid else { return }
+//        let dateBaseRef = Database.database().reference().child("users...\(uid)...profileImage/file.png")
+//
+//        let userObject = [
+//            "username": username,
+//            "photoURL": profileImageURL.absoluteString
+//        ] as [String: Any]
+//
+//        dateBaseRef.setValue(userObject) { (error, ref) in
+//            completion(error == nil)
+//        }
+//    }
     
     private func textFieldDelegate() {
         self.nameTextField.delegate = self
@@ -242,6 +267,14 @@ class MTChangeProfileViewController: UIViewController {
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "backArrow"),
                                                                 style: .plain, target: self,
                                                                 action: #selector(self.backTaped))
+    }
+    
+    @objc private func doneWasPressed() {
+        guard let _ = Auth.auth().currentUser?.uid else { return }
+        if let image = self.profileImageView.image {
+            self.uploadProfileImage(image, completion: nil)
+            self.navigationController?.popViewController(animated: false)
+        }
     }
     
     @objc private func setDate() {
