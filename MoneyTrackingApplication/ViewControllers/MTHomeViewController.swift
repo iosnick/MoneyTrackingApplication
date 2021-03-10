@@ -166,7 +166,9 @@ class MTHomeViewController: UIViewController {
     
     // MARK: - Methods
     @objc private func addGoal() {
-        
+        let vc = MTAddGoalViewController()
+        vc.title = "Add new Goal"
+        self.present(vc, animated: true, completion: nil)
     }
     
     @objc private func didChangeSegment(_ sender: UISegmentedControl) {

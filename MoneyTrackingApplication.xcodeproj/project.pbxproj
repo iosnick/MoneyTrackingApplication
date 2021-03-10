@@ -16,6 +16,7 @@
 		7D4AD2BA25CBF8BA0032DF59 /* UIView+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4AD2B925CBF8BA0032DF59 /* UIView+Ex.swift */; };
 		7D4AD2C025CC68730032DF59 /* MTRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4AD2BF25CC68730032DF59 /* MTRegisterViewController.swift */; };
 		7D4AD2C425CC6D8F0032DF59 /* MTCustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4AD2C325CC6D8F0032DF59 /* MTCustomTextField.swift */; };
+		7DA8860925F9404D008C3F1F /* MTAddGoalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA8860825F9404D008C3F1F /* MTAddGoalViewController.swift */; };
 		7DC1AF2B25C9D4CF00E099A0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DC1AF2A25C9D4CF00E099A0 /* AppDelegate.swift */; };
 		7DC1AF2F25C9D4CF00E099A0 /* MTGreetingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DC1AF2E25C9D4CF00E099A0 /* MTGreetingViewController.swift */; };
 		7DC1AF3425C9D4CF00E099A0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7DC1AF3325C9D4CF00E099A0 /* Assets.xcassets */; };
@@ -43,6 +44,7 @@
 		7D4AD2B925CBF8BA0032DF59 /* UIView+Ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ex.swift"; sourceTree = "<group>"; };
 		7D4AD2BF25CC68730032DF59 /* MTRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTRegisterViewController.swift; sourceTree = "<group>"; };
 		7D4AD2C325CC6D8F0032DF59 /* MTCustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTCustomTextField.swift; sourceTree = "<group>"; };
+		7DA8860825F9404D008C3F1F /* MTAddGoalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTAddGoalViewController.swift; sourceTree = "<group>"; };
 		7DC1AF2725C9D4CF00E099A0 /* MoneyTrackingApplication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoneyTrackingApplication.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7DC1AF2A25C9D4CF00E099A0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7DC1AF2E25C9D4CF00E099A0 /* MTGreetingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTGreetingViewController.swift; sourceTree = "<group>"; };
@@ -160,6 +162,7 @@
 				7DCE20DD25D071A1004C692B /* MTBankViewController.swift */,
 				7DCE20D625D070CD004C692B /* MTProfileViewController.swift */,
 				7DFFD07A25D2878900E75D63 /* MTChangeProfileViewController.swift */,
+				7DA8860825F9404D008C3F1F /* MTAddGoalViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -307,6 +310,7 @@
 				7D4AD2B425CB24510032DF59 /* MTCustomLabel.swift in Sources */,
 				7D15594F25CDC3E800EA2ECC /* MTHomeViewController.swift in Sources */,
 				7D4AD29D25CAC32F0032DF59 /* MTAuthorizationViewController.swift in Sources */,
+				7DA8860925F9404D008C3F1F /* MTAddGoalViewController.swift in Sources */,
 				7D4AD2C025CC68730032DF59 /* MTRegisterViewController.swift in Sources */,
 				7DCE20E725D07592004C692B /* MTAddingViewController.swift in Sources */,
 				7DFFD07B25D2878900E75D63 /* MTChangeProfileViewController.swift in Sources */,
