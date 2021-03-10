@@ -91,7 +91,7 @@ class MTProfileViewController: UIViewController {
         self.view.addSubviews([self.profileImageView, self.nameLabel, self.emailLabel,
                                self.editProfileButton, self.changePasswordButton, self.notificationButton,
                                self.pincodeButton, self.signOutButton])
-        self.temp()
+        
         self.setupNavigationBarProperties()
         self.addConstraints()
     }
@@ -114,14 +114,6 @@ class MTProfileViewController: UIViewController {
         self.navigationItem.title = "Profile"
         self.navigationController?.navigationBar.tintColor = .white
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
-    }
-    
-    private func temp() {
-        if Auth.auth().currentUser?.photoURL != nil {
-            print("not nil")
-        } else {
-            print("nil")
-        }
     }
     
     // MARK: - Sign Out

@@ -109,6 +109,12 @@ class MTAuthorizationViewController: UIViewController {
         alert.addAction(UIAlertAction(title: "OK", style: .destructive, handler: nil))
         present(alert, animated: true, completion: nil)
     }
+    private func showAuthErrorAlert(error: String) {
+        let alert = UIAlertController(title: "Oops!",
+                                      message: error, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .destructive, handler: nil))
+        present(alert, animated: true, completion: nil)
+    }
     
     // MARK: - Register methods
     @objc private func userAuth() {
@@ -122,7 +128,7 @@ class MTAuthorizationViewController: UIViewController {
                     let vc = MTTabBarViewController()
                     self.navigationController?.pushViewController(vc, animated: true)
                 } else {
-                    print(error!)
+                    self.showAuthErrorAlert(error: error!.localizedDescription)
                 }
             }
         } else {

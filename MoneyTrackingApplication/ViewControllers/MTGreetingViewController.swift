@@ -18,7 +18,7 @@ class MTGreetingViewController: UIViewController {
     private lazy var secondWelcomeLabel: MTCustomLabel = {
         let label = MTCustomLabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.setLabelProperties(textColor: UIColor(red: 68/255, green: 71/255, blue: 234/255, alpha: 1),
+        label.setLabelProperties(textColor: UIColor(red: 163/255, green: 90/255, blue: 255/255, alpha: 1),
                                  text: "Money Tracking",
                                  font: .systemFont(ofSize: 24))
         return label
@@ -59,7 +59,7 @@ class MTGreetingViewController: UIViewController {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.titleLabel?.adjustsFontSizeToFitWidth = true
         button.setButtonProperties(title: "Sign In",
-                                   titleColor: UIColor(red: 68.0/255.0, green: 71.0/255.0, blue: 234.0/255.0, alpha: 1.0),
+                                   titleColor: UIColor(red: 163/255, green: 90/255, blue: 255/255, alpha: 1),
                                    font: UIFont.systemFont(ofSize: 15))
         button.addTarget(self, action: #selector(self.openAuthVC), for: .touchUpInside)
         return button

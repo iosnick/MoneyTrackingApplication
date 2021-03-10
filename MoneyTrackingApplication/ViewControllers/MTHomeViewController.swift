@@ -86,6 +86,45 @@ class MTHomeViewController: UIViewController {
                                  textAlignment: .left, font: UIFont.boldSystemFont(ofSize: 21), lines: 1)
         return label
     }()
+    private lazy var segmentedControl: UISegmentedControl = {
+        let items = ["Goals", "History"]
+        
+        let control = UISegmentedControl(items: items)
+        control.selectedSegmentIndex = 0
+        control.addTarget(self, action: #selector(self.didChangeSegment(_:)), for: .valueChanged)
+        control.translatesAutoresizingMaskIntoConstraints = false
+        control.selectedSegmentTintColor = UIColor(red: 136/255, green: 134/255, blue: 251/255, alpha: 1)
+        control.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white,
+                                        NSAttributedString.Key.font: UIFont.systemFont(ofSize: 19)], for: .normal)
+        return control
+    }()
+    private lazy var viewGoals: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    private lazy var addButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("Add goal to list", for: .normal)
+        button.backgroundColor = UIColor(red: 39/255, green: 42/255, blue: 51/255, alpha: 1)
+        button.layer.cornerRadius = 20
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
+        button.addTarget(self, action: #selector(self.addGoal), for: .touchUpInside)
+        
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "addIcon")
+        imageView.frame = .init(x: 16, y: 15, width: 40, height: 40)
+        
+        button.addSubview(imageView)
+        return button
+    }()
+    private lazy var viewHistory: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .blue
+        view.isHidden = true
+        return view
+    }()
     
     // MARK: - Life cycle
 //    override func loadView() {
@@ -104,8 +143,10 @@ class MTHomeViewController: UIViewController {
         self.view.backgroundColor = UIColor(red: 24/255, green: 26/255, blue: 31/255, alpha: 1)
         self.view.addSubviews([self.nameLabel, self.profileImageView, self.cardView,
                                self.balanceLabel, self.balanceLabelScore, self.incomeLabel,
-                               self.incomeLabelScore, self.outcomeLabel, self.outcomeLabelScore])
-        
+                               self.incomeLabelScore, self.outcomeLabel, self.outcomeLabelScore,
+                               self.segmentedControl, self.viewGoals, self.viewHistory])
+
+        self.viewGoals.addSubview(self.addButton)
         self.addConstraints()
     }
     
@@ -119,10 +160,25 @@ class MTHomeViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
+        self.addButton.frame = .init(x: 0, y: 0, width: 327, height: 70)
         self.addGradientOnCard()
     }
     
     // MARK: - Methods
+    @objc private func addGoal() {
+        
+    }
+    
+    @objc private func didChangeSegment(_ sender: UISegmentedControl) {
+        if sender.selectedSegmentIndex == 0 {
+            self.viewHistory.isHidden = true
+            self.viewGoals.isHidden = false
+        } else if sender.selectedSegmentIndex == 1 {
+            self.viewGoals.isHidden = true
+            self.viewHistory.isHidden = false
+        }
+    }
+    
     private func addGradientOnCard() {
         self.gradient.frame = self.cardView.bounds
         self.gradient.cornerRadius = self.cardView.layer.cornerRadius
@@ -177,6 +233,21 @@ class MTHomeViewController: UIViewController {
         constraints.append(outcomeLabelScore.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 168))
         constraints.append(outcomeLabelScore.widthAnchor.constraint(equalToConstant: 115))
         constraints.append(outcomeLabelScore.heightAnchor.constraint(equalToConstant: 26))
+        
+        constraints.append(segmentedControl.topAnchor.constraint(equalTo: view.topAnchor, constant: 386))
+        constraints.append(segmentedControl.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24))
+        constraints.append(segmentedControl.widthAnchor.constraint(equalToConstant: 327))
+        constraints.append(segmentedControl.heightAnchor.constraint(equalToConstant: 38))
+        
+        constraints.append(viewGoals.topAnchor.constraint(equalTo: view.topAnchor, constant: 452))
+        constraints.append(viewGoals.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24))
+        constraints.append(viewGoals.widthAnchor.constraint(equalToConstant: 327))
+        constraints.append(viewGoals.heightAnchor.constraint(equalToConstant: 244))
+        
+        constraints.append(viewHistory.topAnchor.constraint(equalTo: view.topAnchor, constant: 452))
+        constraints.append(viewHistory.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24))
+        constraints.append(viewHistory.widthAnchor.constraint(equalToConstant: 327))
+        constraints.append(viewHistory.heightAnchor.constraint(equalToConstant: 244))
         
         // Activate (Applying)
         NSLayoutConstraint.activate(constraints)

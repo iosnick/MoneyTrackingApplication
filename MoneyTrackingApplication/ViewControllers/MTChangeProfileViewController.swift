@@ -31,7 +31,6 @@ class MTChangeProfileViewController: UIViewController {
         let imageView = UIImageView()
         imageView.isUserInteractionEnabled = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.image = UIImage(named: "defaultUserImage")
         imageView.layer.cornerRadius = 50
         imageView.clipsToBounds = true
         imageView.contentMode = .scaleAspectFill
@@ -155,7 +154,7 @@ class MTChangeProfileViewController: UIViewController {
         let button = MTCustomButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setButtonProperties(title: "Done",
-                                   cornerRadius: 25,
+                                   cornerRadius: 20,
                                    titleColor: .white,
                                    backgroundColor: UIColor(red: 68.0/255.0, green: 71.0/255.0, blue: 234.0/255.0, alpha: 1.0))
         button.addTarget(self, action: #selector(self.doneWasPressed), for: .touchUpInside)
@@ -272,7 +271,18 @@ class MTChangeProfileViewController: UIViewController {
     @objc private func doneWasPressed() {
         guard let _ = Auth.auth().currentUser?.uid else { return }
         if let image = self.profileImageView.image {
-            self.uploadProfileImage(image, completion: nil)
+            if let name = self.nameTextField.text {
+                let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
+                changeRequest?.displayName = name
+                changeRequest?.commitChanges(completion: nil)
+                
+                self.uploadProfileImage(image, completion: nil)
+                self.navigationController?.popViewController(animated: false)
+            } else {
+                self.uploadProfileImage(image, completion: nil)
+                self.navigationController?.popViewController(animated: false)
+            }
+        } else {
             self.navigationController?.popViewController(animated: false)
         }
     }

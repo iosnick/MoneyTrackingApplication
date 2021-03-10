@@ -128,7 +128,14 @@ class MTRegisterViewController: UIViewController {
     
     // MARK: - Alerts
     private func showAlert() {
-        let alert = UIAlertController(title: "Oops!", message: "Just fill all of the fields", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Oops!",
+                                      message: "Just fill all of the fields or password mismatch", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .destructive, handler: nil))
+        present(alert, animated: true, completion: nil)
+    }
+    private func showRegisterErrorAlert(error: String) {
+        let alert = UIAlertController(title: "Oops!",
+                                      message: error, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .destructive, handler: nil))
         present(alert, animated: true, completion: nil)
     }
@@ -151,7 +158,7 @@ class MTRegisterViewController: UIViewController {
                     let vc = MTTabBarViewController()
                     self.navigationController?.pushViewController(vc, animated: true)
                 } else {
-                    print(error!)
+                    self.showRegisterErrorAlert(error: error!.localizedDescription)
                 }
             }
         } else {
