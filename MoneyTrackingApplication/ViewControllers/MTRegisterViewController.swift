@@ -7,6 +7,7 @@
 
 import UIKit
 import FirebaseAuth
+import TransitionButton
 
 class MTRegisterViewController: UIViewController {
     // MARK: - GUI Variables
@@ -58,13 +59,14 @@ class MTRegisterViewController: UIViewController {
         textField.textContentType = .newPassword
         return textField
     }()
-    private lazy var signUpButton: MTCustomButton = {
-        let button = MTCustomButton()
+    private lazy var signUpButton: TransitionButton = {
+        let button = TransitionButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setButtonProperties(title: "Sign Up",
-                                   cornerRadius: 25,
-                                   titleColor: .white,
-                                   backgroundColor: UIColor(red: 68.0/255.0, green: 71.0/255.0, blue: 234.0/255.0, alpha: 1.0))
+        button.setTitle("Sign Up", for: .normal)
+        button.cornerRadius = 25
+        button.setTitleColor(.white, for: .normal)
+        button.backgroundColor = UIColor(red: 68.0/255.0, green: 71.0/255.0, blue: 234.0/255.0, alpha: 1.0)
+        button.spinnerColor = .white
         button.addTarget(self, action: #selector(self.userRegister), for: .touchUpInside)
         return button
     }()
@@ -142,6 +144,8 @@ class MTRegisterViewController: UIViewController {
     
     // MARK: - Register methods
     @objc private func userRegister() {
+        self.signUpButton.startAnimation()
+        
         let name = userNameTextField.text!
         let email = userEmailTextField.text!
         let password = userPasswordTextField.text!
@@ -155,13 +159,25 @@ class MTRegisterViewController: UIViewController {
                     changeRequest?.displayName = name
                     changeRequest?.commitChanges(completion: nil)
                     
-                    let vc = MTTabBarViewController()
-                    self.navigationController?.pushViewController(vc, animated: true)
+                    DispatchQueue.main.asyncAfter(deadline: .now()) {
+                        self.signUpButton.stopAnimation(animationStyle: .expand, revertAfterDelay: 1) {
+                            let vc = MTTabBarViewController()
+                            self.navigationController?.pushViewController(vc, animated: true)
+                        }
+                    }
                 } else {
+                    DispatchQueue.main.asyncAfter(deadline: .now()) {
+                        self.signUpButton.stopAnimation(animationStyle: .shake, revertAfterDelay: 1) { }
+                    }
+                    
                     self.showRegisterErrorAlert(error: error!.localizedDescription)
                 }
             }
         } else {
+            DispatchQueue.main.asyncAfter(deadline: .now()) {
+                self.signUpButton.stopAnimation(animationStyle: .shake, revertAfterDelay: 1) { }
+            }
+            
             self.showAlert()
         }
     }

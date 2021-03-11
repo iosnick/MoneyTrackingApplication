@@ -7,6 +7,7 @@
 
 import UIKit
 import FirebaseAuth
+import TransitionButton
 
 class MTAuthorizationViewController: UIViewController {
     // MARK: - GUI Variables
@@ -39,13 +40,14 @@ class MTAuthorizationViewController: UIViewController {
         textField.textContentType = .password
         return textField
     }()
-    private lazy var signInButton: MTCustomButton = {
-        let button = MTCustomButton()
+    private lazy var signInButton: TransitionButton = {
+        let button = TransitionButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setButtonProperties(title: "Sign In",
-                                   cornerRadius: 25,
-                                   titleColor: .white,
-                                   backgroundColor: UIColor(red: 68.0/255.0, green: 71.0/255.0, blue: 234.0/255.0, alpha: 1.0))
+        button.setTitle("Sign In", for: .normal)
+        button.cornerRadius = 25
+        button.setTitleColor(.white, for: .normal)
+        button.backgroundColor = UIColor(red: 68.0/255.0, green: 71.0/255.0, blue: 234.0/255.0, alpha: 1.0)
+        button.spinnerColor = .white
         button.addTarget(self, action: #selector(self.userAuth), for: .touchUpInside)
         return button
     }()
@@ -118,6 +120,8 @@ class MTAuthorizationViewController: UIViewController {
     
     // MARK: - Register methods
     @objc private func userAuth() {
+        self.signInButton.startAnimation()
+        
         let email = userEmailTextField.text!
         let password = userPasswordTextField.text!
         
@@ -125,13 +129,25 @@ class MTAuthorizationViewController: UIViewController {
             Auth.auth().signIn(withEmail: email, password: password) { [weak self] (result, error) in
                 guard let self = self else { return }
                 if error == nil {
-                    let vc = MTTabBarViewController()
-                    self.navigationController?.pushViewController(vc, animated: true)
+                    DispatchQueue.main.asyncAfter(deadline: .now()) {
+                        self.signInButton.stopAnimation(animationStyle: .expand, revertAfterDelay: 1) {
+                            let vc = MTTabBarViewController()
+                            self.navigationController?.pushViewController(vc, animated: true)
+                        }
+                    }
                 } else {
+                    DispatchQueue.main.asyncAfter(deadline: .now()) {
+                        self.signInButton.stopAnimation(animationStyle: .shake, revertAfterDelay: 1) { }
+                    }
+                    
                     self.showAuthErrorAlert(error: error!.localizedDescription)
                 }
             }
         } else {
+            DispatchQueue.main.asyncAfter(deadline: .now()) {
+                self.signInButton.stopAnimation(animationStyle: .shake, revertAfterDelay: 1) { }
+            }
+            
             self.showAlert()
         }
     }
