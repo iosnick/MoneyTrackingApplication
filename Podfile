@@ -7,6 +7,7 @@ target 'MoneyTrackingApplication' do
 pod 'Firebase/Database'
 pod 'Firebase/Auth'
 pod 'Firebase/Storage'
+pod 'TransitionButton'
   # Pods for MoneyTrackingApplication
 
 end
