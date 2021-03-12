@@ -29,7 +29,7 @@ class MTCustomTextField: UITextField {
                                 borderColor: CGColor = UIColor.white.cgColor,
                                 borderWidth: CGFloat = 1) {
         self.attributedPlaceholder = NSAttributedString(string: placeHolderText,
-                                                        attributes: [NSAttributedString.Key.foregroundColor: UIColor(white: 1, alpha: 0.7),
+                                                        attributes: [NSAttributedString.Key.foregroundColor: UIColor(white: 1, alpha: 0.5),
                                                                      NSAttributedString.Key.font: UIFont(name: "Montserrat",
                                                                                                          size: placeHolderTextSize) as Any])
         self.layer.borderWidth = borderWidth

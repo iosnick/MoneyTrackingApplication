@@ -13,6 +13,7 @@ import FirebaseAuth
 class MTChangeProfileViewController: UIViewController {
     // MARK: - Variables
     private let male = ["Not defined", "Man", "Women"]
+    
     private let datePicker: UIDatePicker = {
         let datePicker = UIDatePicker()
         datePicker.datePickerMode = .date
@@ -201,7 +202,6 @@ class MTChangeProfileViewController: UIViewController {
         
         self.addGradient()
     }
-    
     
     // MARK: - Methods
     private func addPrickerViewAndDatePicker() {

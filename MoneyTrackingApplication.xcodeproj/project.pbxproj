@@ -17,6 +17,8 @@
 		7D4AD2C025CC68730032DF59 /* MTRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4AD2BF25CC68730032DF59 /* MTRegisterViewController.swift */; };
 		7D4AD2C425CC6D8F0032DF59 /* MTCustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4AD2C325CC6D8F0032DF59 /* MTCustomTextField.swift */; };
 		7DA8860925F9404D008C3F1F /* MTAddGoalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA8860825F9404D008C3F1F /* MTAddGoalViewController.swift */; };
+		7DA8861B25FA1EF1008C3F1F /* MTChangeGoalViwController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA8861A25FA1EF1008C3F1F /* MTChangeGoalViwController.swift */; };
+		7DA8861E25FA1F00008C3F1F /* MTChangeBalanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA8861D25FA1F00008C3F1F /* MTChangeBalanceViewController.swift */; };
 		7DC1AF2B25C9D4CF00E099A0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DC1AF2A25C9D4CF00E099A0 /* AppDelegate.swift */; };
 		7DC1AF2F25C9D4CF00E099A0 /* MTGreetingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DC1AF2E25C9D4CF00E099A0 /* MTGreetingViewController.swift */; };
 		7DC1AF3425C9D4CF00E099A0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7DC1AF3325C9D4CF00E099A0 /* Assets.xcassets */; };
@@ -45,6 +47,8 @@
 		7D4AD2BF25CC68730032DF59 /* MTRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTRegisterViewController.swift; sourceTree = "<group>"; };
 		7D4AD2C325CC6D8F0032DF59 /* MTCustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTCustomTextField.swift; sourceTree = "<group>"; };
 		7DA8860825F9404D008C3F1F /* MTAddGoalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTAddGoalViewController.swift; sourceTree = "<group>"; };
+		7DA8861A25FA1EF1008C3F1F /* MTChangeGoalViwController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTChangeGoalViwController.swift; sourceTree = "<group>"; };
+		7DA8861D25FA1F00008C3F1F /* MTChangeBalanceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTChangeBalanceViewController.swift; sourceTree = "<group>"; };
 		7DC1AF2725C9D4CF00E099A0 /* MoneyTrackingApplication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoneyTrackingApplication.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7DC1AF2A25C9D4CF00E099A0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7DC1AF2E25C9D4CF00E099A0 /* MTGreetingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTGreetingViewController.swift; sourceTree = "<group>"; };
@@ -163,6 +167,8 @@
 				7DCE20D625D070CD004C692B /* MTProfileViewController.swift */,
 				7DFFD07A25D2878900E75D63 /* MTChangeProfileViewController.swift */,
 				7DA8860825F9404D008C3F1F /* MTAddGoalViewController.swift */,
+				7DA8861D25FA1F00008C3F1F /* MTChangeBalanceViewController.swift */,
+				7DA8861A25FA1EF1008C3F1F /* MTChangeGoalViwController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -300,8 +306,10 @@
 			files = (
 				7DCE20D725D070CD004C692B /* MTProfileViewController.swift in Sources */,
 				7DCE20DE25D071A1004C692B /* MTBankViewController.swift in Sources */,
+				7DA8861E25FA1F00008C3F1F /* MTChangeBalanceViewController.swift in Sources */,
 				7DC1AF2F25C9D4CF00E099A0 /* MTGreetingViewController.swift in Sources */,
 				7DC1AF2B25C9D4CF00E099A0 /* AppDelegate.swift in Sources */,
+				7DA8861B25FA1EF1008C3F1F /* MTChangeGoalViwController.swift in Sources */,
 				7D15596E25CE950400EA2ECC /* UIViewController+Ex.swift in Sources */,
 				7DCE20DA25D07166004C692B /* MTTimeViewController.swift in Sources */,
 				7D4AD2BA25CBF8BA0032DF59 /* UIView+Ex.swift in Sources */,

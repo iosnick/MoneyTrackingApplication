@@ -6,25 +6,29 @@
 //
 
 import UIKit
+import TransitionButton
 
 class MTAddingViewController: UIViewController {
     // MARK: - GUI Variables
-    private lazy var addBalanceButton: UIButton = {
-        let button = UIButton()
+    private lazy var addBalanceButton: TransitionButton = {
+        let button = TransitionButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.layer.cornerRadius = 20
+        button.cornerRadius = 20
+        button.spinnerColor = .white
         button.backgroundColor = UIColor(red: 136/255, green: 134/255, blue: 251/255, alpha: 1)
         button.setTitle("Add to Balance", for: .normal)
         button.titleLabel?.font = .boldSystemFont(ofSize: 17)
+        button.addTarget(self, action: #selector(self.addBalanceAction), for: .touchUpInside)
         return button
     }()
-    private lazy var addGoalButton: UIButton = {
-        let button = UIButton()
+    private lazy var addGoalButton: TransitionButton = {
+        let button = TransitionButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.layer.cornerRadius = 20
+        button.cornerRadius = 20
         button.backgroundColor = UIColor(red: 136/255, green: 134/255, blue: 251/255, alpha: 1)
         button.setTitle("Add to Goal", for: .normal)
         button.titleLabel?.font = .boldSystemFont(ofSize: 17)
+        button.addTarget(self, action: #selector(self.addGoalAction), for: .touchUpInside)
         return button
     }()
     private lazy var backButton: UIButton = {
@@ -53,6 +57,30 @@ class MTAddingViewController: UIViewController {
     }
     
     // MARK: - Methods
+    @objc private func addBalanceAction() {
+        self.addBalanceButton.startAnimation()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now()) {
+            self.addBalanceButton.stopAnimation(animationStyle: .expand, revertAfterDelay: 1) {
+                let vc = MTChangeBalanceViewController()
+                vc.modalPresentationStyle = .fullScreen
+                self.present(vc, animated: false, completion: nil)
+            }
+        }
+    }
+    
+    @objc private func addGoalAction() {
+        self.addGoalButton.startAnimation()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now()) {
+            self.addGoalButton.stopAnimation(animationStyle: .expand, revertAfterDelay: 1) {
+                let vc = MTChangeGoalViwController()
+                vc.modalPresentationStyle = .fullScreen
+                self.present(vc, animated: false, completion: nil)
+            }
+        }
+    }
+    
     @objc private func backButtonPresed() {
         self.dismiss(animated: true, completion: nil)
     }

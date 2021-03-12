@@ -74,7 +74,7 @@ class MTTabBarViewController: UITabBarController {
         
         // Add
 
-        constraints.append(button.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 143))
+        constraints.append(button.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 143.5))
         constraints.append(button.topAnchor.constraint(equalTo: view.topAnchor, constant: 715))
         constraints.append(button.widthAnchor.constraint(equalToConstant: 89))
         constraints.append(button.heightAnchor.constraint(equalToConstant: 89))
@@ -87,15 +87,12 @@ class MTTabBarViewController: UITabBarController {
 
 // MARK: - UITabBarControllerDelegate
 extension MTTabBarViewController: UITabBarControllerDelegate {
-
     func tabBarController(_ tabBarController: UITabBarController, animationControllerForTransitionFrom fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         return TabBarAnimatedTransitioning()
     }
-
 }
 
 final class TabBarAnimatedTransitioning: NSObject, UIViewControllerAnimatedTransitioning {
-
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         guard let destination = transitionContext.view(forKey: UITransitionContextViewKey.to) else { return }
 
@@ -108,10 +105,8 @@ final class TabBarAnimatedTransitioning: NSObject, UIViewControllerAnimatedTrans
             destination.transform = .identity
         }, completion: { transitionContext.completeTransition($0) })
     }
-
     
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return 0.25
     }
-
 }
