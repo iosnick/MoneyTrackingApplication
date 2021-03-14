@@ -9,11 +9,11 @@ import UIKit
 
 class MTChangeGoalViwController: UIViewController {
     // MARK: - GUI Variables
-    private lazy var Label: MTCustomLabel = {
-        let label = MTCustomLabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
+//    private lazy var Label: MTCustomLabel = {
+//        let label = MTCustomLabel()
+//        label.translatesAutoresizingMaskIntoConstraints = false
+//        return label
+//    }()
     private lazy var addButton: MTCustomButton = {
         let button = MTCustomButton()
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -39,6 +39,12 @@ class MTChangeGoalViwController: UIViewController {
     @objc private func changeGoal() {
         let vc = MTTabBarViewController()
         vc.modalPresentationStyle = .fullScreen
+        
+//        CoreDataManager.shared.remove(from: "Balance")
+//        CoreDataManager.shared.writeDataInBalance(mainBalance: 10, income: 0, outcome: 0)
+        let array = CoreDataManager.shared.readGoals()
+        print(array)
+        
         self.present(vc, animated: false, completion: nil)
     }
     
@@ -52,7 +58,6 @@ class MTChangeGoalViwController: UIViewController {
         constraints.append(addButton.widthAnchor.constraint(equalToConstant: 272))
         constraints.append(addButton.heightAnchor.constraint(equalToConstant: 44))
         
-  
         // Activate (Applying)
         NSLayoutConstraint.activate(constraints)
     }

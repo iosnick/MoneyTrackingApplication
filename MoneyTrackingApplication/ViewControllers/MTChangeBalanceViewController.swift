@@ -10,7 +10,8 @@ import UIKit
 class MTChangeBalanceViewController: UIViewController {
     // MARK: - Variables
     private let category = ["", "Food", "Car", "Clothes", "Furniture",
-                            "Games", "Computer", "Electronics", "Entertainment", "Other"]
+                            "Games", "Computer", "Electronics", "Entertainments", "Salary", "Other"]
+    private var flag: Bool = true
     
     // MARK: - GUI Variables
     private lazy var addToBalanceLabel: MTCustomLabel = {
@@ -39,7 +40,7 @@ class MTChangeBalanceViewController: UIViewController {
         
         let control = UISegmentedControl(items: items)
         control.selectedSegmentIndex = 0
-//        control.addTarget(self, action: #selector(self.didChangeSegment(_:)), for: .valueChanged)
+        control.addTarget(self, action: #selector(self.didChangeSegment(_:)), for: .valueChanged)
         control.translatesAutoresizingMaskIntoConstraints = false
         control.selectedSegmentTintColor = UIColor(red: 136/255, green: 134/255, blue: 251/255, alpha: 1)
         control.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white,
@@ -83,7 +84,7 @@ class MTChangeBalanceViewController: UIViewController {
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.setTextFieldProperties(placeHolderText: "999999", textFont: UIFont.systemFont(ofSize: 16), cornerRadius: 15,
                                          borderColor: UIColor(red: 68.0/255.0, green: 71.0/255.0, blue: 234.0/255.0, alpha: 1.0).cgColor)
-        textField.addLeftIcon(named: "dollar")
+        textField.addLeftIconDollar()
         return textField
     }()
     private lazy var addToWalletButton: MTCustomButton = {
@@ -126,14 +127,54 @@ class MTChangeBalanceViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
+        self.getCurrentBalance()
         self.addGradient()
     }
     
     // MARK: - Methods
+    @objc private func didChangeSegment(_ sender: UISegmentedControl) {
+        if sender.selectedSegmentIndex == 0 {
+            self.flag = true
+        } else if sender.selectedSegmentIndex == 1 {
+            self.flag = false
+        }
+    }
+    
     @objc private func changeBalance() {
-        let vc = MTTabBarViewController()
-        vc.modalPresentationStyle = .fullScreen
-        self.present(vc, animated: false, completion: nil)
+        if !self.categoryTextField.text!.isEmpty, !self.enterMoney.text!.isEmpty {
+            let parametrs = self.categoryTextField.text!
+            let currentFlag = self.flag
+            let sum = Int64(self.enterMoney.text!)!
+            
+            let balanceArray = CoreDataManager.shared.readBalance()
+            var mainBalance = balanceArray[0]
+            var income = balanceArray[1]
+            var outcome = balanceArray[2]
+            CoreDataManager.shared.remove(from: "Balance")
+
+            if currentFlag == true {
+                income = income + sum
+                mainBalance = mainBalance + sum
+            } else {
+                outcome = outcome + sum
+                mainBalance = mainBalance - sum
+            }
+            
+            CoreDataManager.shared.writeDataInBalance(mainBalance: mainBalance, income: income, outcome: outcome)
+            CoreDataManager.shared.writeDataInCategory(parametrs: parametrs, sum: sum, flag: currentFlag)
+
+            let vc = MTTabBarViewController()
+            vc.modalPresentationStyle = .fullScreen
+            self.present(vc, animated: false, completion: nil)
+        } else {
+            self.showAlert()
+        }
+    }
+    
+    private func getCurrentBalance() {
+        let resultArray = CoreDataManager.shared.readBalance()
+
+        self.currentBalanceLabel.text = String("$\(resultArray[0])")
     }
     
     private func addPickerView() {
@@ -151,6 +192,13 @@ class MTChangeBalanceViewController: UIViewController {
     private func textFieldDelegate() {
         self.categoryTextField.delegate = self
         self.enterMoney.delegate = self
+    }
+    
+    // MARK: - Alerts
+    private func showAlert() {
+        let alert = UIAlertController(title: "Oops!", message: "Category or sum is empty!", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .destructive, handler: nil))
+        present(alert, animated: true, completion: nil)
     }
     
     // MARK: - Add constraints
@@ -196,7 +244,7 @@ class MTChangeBalanceViewController: UIViewController {
         constraints.append(enterMoney.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 115))
         constraints.append(enterMoney.topAnchor.constraint(equalTo: view.topAnchor, constant: 398))
         constraints.append(enterMoney.widthAnchor.constraint(equalToConstant: 146))
-        constraints.append(enterMoney.heightAnchor.constraint(equalToConstant: 37))
+        constraints.append(enterMoney.heightAnchor.constraint(equalToConstant: 32))
         
         constraints.append(addToWalletButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 692))
         constraints.append(addToWalletButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 52))

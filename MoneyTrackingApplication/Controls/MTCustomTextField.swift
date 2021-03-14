@@ -55,6 +55,18 @@ class MTCustomTextField: UITextField {
         self.leftViewMode = UITextField.ViewMode.always
     }
     
+    func addLeftIconDollar() {
+        let leftImageView = UIImageView()
+        leftImageView.image = UIImage(named: "dollar")
+        let leftView = UIView()
+        leftView.addSubview(leftImageView)
+        leftView.frame = CGRect(x: 0, y: 0, width: 37, height: 26)
+        leftImageView.frame = CGRect(x: 10, y: 4, width: 14, height: 18)
+        self.addSubview(leftView)
+        self.leftView = leftView
+        self.leftViewMode = UITextField.ViewMode.always
+    }
+    
     func addRigthIcon() {
         let rightView = UIView()
         rightView.addSubview(self.textFieldEyeButton)

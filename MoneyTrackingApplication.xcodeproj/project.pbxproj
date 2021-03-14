@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7D0A9D3825FE13B400AFD126 /* Category+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0A9D3425FE13B400AFD126 /* Category+CoreDataClass.swift */; };
+		7D0A9D3925FE13B400AFD126 /* Category+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0A9D3525FE13B400AFD126 /* Category+CoreDataProperties.swift */; };
+		7D0A9D3A25FE13B400AFD126 /* Balance+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0A9D3625FE13B400AFD126 /* Balance+CoreDataClass.swift */; };
+		7D0A9D3B25FE13B400AFD126 /* Balance+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0A9D3725FE13B400AFD126 /* Balance+CoreDataProperties.swift */; };
+		7D0A9D6125FE84C200AFD126 /* Goals+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0A9D5F25FE84C200AFD126 /* Goals+CoreDataClass.swift */; };
+		7D0A9D6225FE84C200AFD126 /* Goals+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0A9D6025FE84C200AFD126 /* Goals+CoreDataProperties.swift */; };
 		7D15594F25CDC3E800EA2ECC /* MTHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D15594E25CDC3E800EA2ECC /* MTHomeViewController.swift */; };
 		7D15595225CDD0EF00EA2ECC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7D15595125CDD0EF00EA2ECC /* GoogleService-Info.plist */; };
 		7D15596E25CE950400EA2ECC /* UIViewController+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D15596D25CE950400EA2ECC /* UIViewController+Ex.swift */; };
@@ -19,6 +25,8 @@
 		7DA8860925F9404D008C3F1F /* MTAddGoalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA8860825F9404D008C3F1F /* MTAddGoalViewController.swift */; };
 		7DA8861B25FA1EF1008C3F1F /* MTChangeGoalViwController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA8861A25FA1EF1008C3F1F /* MTChangeGoalViwController.swift */; };
 		7DA8861E25FA1F00008C3F1F /* MTChangeBalanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA8861D25FA1F00008C3F1F /* MTChangeBalanceViewController.swift */; };
+		7DA8866E25FD24F6008C3F1F /* MTCardModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7DA8866C25FD24F6008C3F1F /* MTCardModel.xcdatamodeld */; };
+		7DA8867825FD26D3008C3F1F /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA8867725FD26D3008C3F1F /* CoreDataManager.swift */; };
 		7DC1AF2B25C9D4CF00E099A0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DC1AF2A25C9D4CF00E099A0 /* AppDelegate.swift */; };
 		7DC1AF2F25C9D4CF00E099A0 /* MTGreetingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DC1AF2E25C9D4CF00E099A0 /* MTGreetingViewController.swift */; };
 		7DC1AF3425C9D4CF00E099A0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7DC1AF3325C9D4CF00E099A0 /* Assets.xcassets */; };
@@ -37,6 +45,12 @@
 		056563BD68589CA76F2BA9AB /* Pods_MoneyTrackingApplication.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MoneyTrackingApplication.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D6A0F911D28EFB2E47B8FED /* Pods-MoneyTrackingApplication.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoneyTrackingApplication.release.xcconfig"; path = "Target Support Files/Pods-MoneyTrackingApplication/Pods-MoneyTrackingApplication.release.xcconfig"; sourceTree = "<group>"; };
 		3CC2750692D66A5668EB34A1 /* Pods-MoneyTrackingApplication.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoneyTrackingApplication.debug.xcconfig"; path = "Target Support Files/Pods-MoneyTrackingApplication/Pods-MoneyTrackingApplication.debug.xcconfig"; sourceTree = "<group>"; };
+		7D0A9D3425FE13B400AFD126 /* Category+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Category+CoreDataClass.swift"; sourceTree = "<group>"; };
+		7D0A9D3525FE13B400AFD126 /* Category+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Category+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		7D0A9D3625FE13B400AFD126 /* Balance+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Balance+CoreDataClass.swift"; sourceTree = "<group>"; };
+		7D0A9D3725FE13B400AFD126 /* Balance+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Balance+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		7D0A9D5F25FE84C200AFD126 /* Goals+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Goals+CoreDataClass.swift"; sourceTree = "<group>"; };
+		7D0A9D6025FE84C200AFD126 /* Goals+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Goals+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		7D15594E25CDC3E800EA2ECC /* MTHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTHomeViewController.swift; sourceTree = "<group>"; };
 		7D15595125CDD0EF00EA2ECC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7D15596D25CE950400EA2ECC /* UIViewController+Ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ex.swift"; sourceTree = "<group>"; };
@@ -49,6 +63,8 @@
 		7DA8860825F9404D008C3F1F /* MTAddGoalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTAddGoalViewController.swift; sourceTree = "<group>"; };
 		7DA8861A25FA1EF1008C3F1F /* MTChangeGoalViwController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTChangeGoalViwController.swift; sourceTree = "<group>"; };
 		7DA8861D25FA1F00008C3F1F /* MTChangeBalanceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTChangeBalanceViewController.swift; sourceTree = "<group>"; };
+		7DA8866D25FD24F6008C3F1F /* MTCardModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MTCardModel.xcdatamodel; sourceTree = "<group>"; };
+		7DA8867725FD26D3008C3F1F /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		7DC1AF2725C9D4CF00E099A0 /* MoneyTrackingApplication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoneyTrackingApplication.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7DC1AF2A25C9D4CF00E099A0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7DC1AF2E25C9D4CF00E099A0 /* MTGreetingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTGreetingViewController.swift; sourceTree = "<group>"; };
@@ -120,9 +136,31 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		7DA8866B25FD24BF008C3F1F /* Data Models */ = {
+			isa = PBXGroup;
+			children = (
+				7DA8866C25FD24F6008C3F1F /* MTCardModel.xcdatamodeld */,
+			);
+			path = "Data Models";
+			sourceTree = "<group>";
+		};
+		7DA8867625FD26B2008C3F1F /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				7DA8867725FD26D3008C3F1F /* CoreDataManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
 		7DC1AF1E25C9D4CE00E099A0 = {
 			isa = PBXGroup;
 			children = (
+				7D0A9D5F25FE84C200AFD126 /* Goals+CoreDataClass.swift */,
+				7D0A9D6025FE84C200AFD126 /* Goals+CoreDataProperties.swift */,
+				7D0A9D3425FE13B400AFD126 /* Category+CoreDataClass.swift */,
+				7D0A9D3525FE13B400AFD126 /* Category+CoreDataProperties.swift */,
+				7D0A9D3625FE13B400AFD126 /* Balance+CoreDataClass.swift */,
+				7D0A9D3725FE13B400AFD126 /* Balance+CoreDataProperties.swift */,
 				7DC1AF2925C9D4CF00E099A0 /* MoneyTrackingApplication */,
 				7DC1AF2825C9D4CF00E099A0 /* Products */,
 				42F928772C9A40B16730516C /* Pods */,
@@ -143,6 +181,8 @@
 			children = (
 				7DC1AF2A25C9D4CF00E099A0 /* AppDelegate.swift */,
 				7DC1AF3F25C9D4F800E099A0 /* ViewControllers */,
+				7DA8866B25FD24BF008C3F1F /* Data Models */,
+				7DA8867625FD26B2008C3F1F /* Managers */,
 				7D4AD2A725CAD8830032DF59 /* Views */,
 				7D4AD2A825CAD88B0032DF59 /* Controls */,
 				7D4AD2B825CBF89F0032DF59 /* Extensions */,
@@ -310,19 +350,27 @@
 				7DC1AF2F25C9D4CF00E099A0 /* MTGreetingViewController.swift in Sources */,
 				7DC1AF2B25C9D4CF00E099A0 /* AppDelegate.swift in Sources */,
 				7DA8861B25FA1EF1008C3F1F /* MTChangeGoalViwController.swift in Sources */,
+				7D0A9D3825FE13B400AFD126 /* Category+CoreDataClass.swift in Sources */,
+				7D0A9D3925FE13B400AFD126 /* Category+CoreDataProperties.swift in Sources */,
+				7D0A9D3B25FE13B400AFD126 /* Balance+CoreDataProperties.swift in Sources */,
 				7D15596E25CE950400EA2ECC /* UIViewController+Ex.swift in Sources */,
 				7DCE20DA25D07166004C692B /* MTTimeViewController.swift in Sources */,
 				7D4AD2BA25CBF8BA0032DF59 /* UIView+Ex.swift in Sources */,
+				7DA8867825FD26D3008C3F1F /* CoreDataManager.swift in Sources */,
 				7DCE20E225D073A4004C692B /* MTTabBarViewController.swift in Sources */,
 				7D4AD2C425CC6D8F0032DF59 /* MTCustomTextField.swift in Sources */,
 				7D4AD2B425CB24510032DF59 /* MTCustomLabel.swift in Sources */,
 				7D15594F25CDC3E800EA2ECC /* MTHomeViewController.swift in Sources */,
 				7D4AD29D25CAC32F0032DF59 /* MTAuthorizationViewController.swift in Sources */,
+				7D0A9D3A25FE13B400AFD126 /* Balance+CoreDataClass.swift in Sources */,
+				7DA8866E25FD24F6008C3F1F /* MTCardModel.xcdatamodeld in Sources */,
 				7DA8860925F9404D008C3F1F /* MTAddGoalViewController.swift in Sources */,
 				7D4AD2C025CC68730032DF59 /* MTRegisterViewController.swift in Sources */,
 				7DCE20E725D07592004C692B /* MTAddingViewController.swift in Sources */,
 				7DFFD07B25D2878900E75D63 /* MTChangeProfileViewController.swift in Sources */,
 				7DCE20EB25D08704004C692B /* UIButton+Ex.swift in Sources */,
+				7D0A9D6125FE84C200AFD126 /* Goals+CoreDataClass.swift in Sources */,
+				7D0A9D6225FE84C200AFD126 /* Goals+CoreDataProperties.swift in Sources */,
 				7D4AD2AA25CAD8BA0032DF59 /* MTCustomButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -519,6 +567,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		7DA8866C25FD24F6008C3F1F /* MTCardModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				7DA8866D25FD24F6008C3F1F /* MTCardModel.xcdatamodel */,
+			);
+			currentVersion = 7DA8866D25FD24F6008C3F1F /* MTCardModel.xcdatamodel */;
+			path = MTCardModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 7DC1AF1F25C9D4CE00E099A0 /* Project object */;
 }

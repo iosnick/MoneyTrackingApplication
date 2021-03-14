@@ -86,6 +86,8 @@ class MTGreetingViewController: UIViewController {
                                self.secondGreetingImageView, self.secondWelcomeLabel, self.welcomeLabel,
                                self.signUpButton, self.greetingImageView])
         
+        CoreDataManager.shared.writeDataInBalance(mainBalance: 10, income: 1, outcome: 1)
+        
         self.addConstraints()
     }
     
