@@ -8,6 +8,7 @@ pod 'Firebase/Database'
 pod 'Firebase/Auth'
 pod 'Firebase/Storage'
 pod 'TransitionButton'
+pod 'Charts'
   # Pods for MoneyTrackingApplication
 
 end

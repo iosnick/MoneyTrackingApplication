@@ -1,4 +1,7 @@
 PODS:
+  - Charts (3.6.0):
+    - Charts/Core (= 3.6.0)
+  - Charts/Core (3.6.0)
   - Firebase/Auth (7.5.0):
     - Firebase/CoreOnly
     - FirebaseAuth (~> 7.5.0)
@@ -58,6 +61,7 @@ PODS:
   - TransitionButton (0.5.3)
 
 DEPENDENCIES:
+  - Charts
   - Firebase/Auth
   - Firebase/Database
   - Firebase/Storage
@@ -65,6 +69,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
+    - Charts
     - Firebase
     - FirebaseAuth
     - FirebaseCore
@@ -80,6 +85,7 @@ SPEC REPOS:
     - TransitionButton
 
 SPEC CHECKSUMS:
+  Charts: b1e3a1f5a1c9ba5394438ca3b91bd8c9076310af
   Firebase: fd5e4d2b756292c6e7ee6faac1eb320225d6e97e
   FirebaseAuth: 13585612f93d671962682007ea8ded1d60ef0762
   FirebaseCore: 06a2b68af8901f2244eb989419eb89edc3789b4d
@@ -94,6 +100,6 @@ SPEC CHECKSUMS:
   PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
   TransitionButton: 36283346e17c64775a1b3bc3a7a72940a367de1f
 
-PODFILE CHECKSUM: 74dc44b4566595477b6af5af97fc185c64793476
+PODFILE CHECKSUM: a4ba20deecd945eea7de4a287cd9181ffd4991dc
 
 COCOAPODS: 1.10.1
