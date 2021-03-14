@@ -41,9 +41,7 @@ class MTChangeGoalViwController: UIViewController {
         vc.modalPresentationStyle = .fullScreen
         
 //        CoreDataManager.shared.remove(from: "Balance")
-//        CoreDataManager.shared.writeDataInBalance(mainBalance: 10, income: 0, outcome: 0)
-        let array = CoreDataManager.shared.readGoals()
-        print(array)
+//        CoreDataManager.shared.writeDataInBalance(mainBalance: 1000, income: 0, outcome: 0)
         
         self.present(vc, animated: false, completion: nil)
     }
