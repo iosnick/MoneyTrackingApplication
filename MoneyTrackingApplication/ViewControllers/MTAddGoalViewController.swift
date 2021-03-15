@@ -55,6 +55,7 @@ class MTAddGoalViewController: UIViewController {
         textField.setTextFieldProperties(placeHolderText: "999999", textFont: UIFont.systemFont(ofSize: 16), cornerRadius: 15,
                                          borderColor: UIColor(red: 68.0/255.0, green: 71.0/255.0, blue: 234.0/255.0, alpha: 1.0).cgColor)
         textField.addLeftIconDollar()
+        textField.keyboardType = .phonePad
         return textField
     }()
     private lazy var currentMoney: MTCustomLabel = {
@@ -70,6 +71,7 @@ class MTAddGoalViewController: UIViewController {
         textField.setTextFieldProperties(placeHolderText: "999999", textFont: UIFont.systemFont(ofSize: 16), cornerRadius: 15,
                                          borderColor: UIColor(red: 68.0/255.0, green: 71.0/255.0, blue: 234.0/255.0, alpha: 1.0).cgColor)
         textField.addLeftIconDollar()
+        textField.keyboardType = .phonePad
         return textField
     }()
     private lazy var addButton: MTCustomButton = {
@@ -92,6 +94,7 @@ class MTAddGoalViewController: UIViewController {
                                self.howMuchMoney, self.enterMoney, self.addButton,
                                self.currentMoney, self.enterMoneyCurrent])
         
+        self.keyboardHideWhenTappedAround()
         self.addConstraints()
         self.textFieldDelegate()
     }
